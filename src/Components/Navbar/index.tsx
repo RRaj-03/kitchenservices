@@ -8,7 +8,6 @@ const navigation = [
   { name: 'Home', href: '#', current: true },
   { name: 'Team', href: '#', current: false },
   { name: 'Services', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
 ]
 const cities = [
   'Pune',
@@ -97,7 +96,7 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
-                        href={item.name}
+                        href={"/"+item.name}
                         className={classNames(
                           current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
@@ -122,7 +121,7 @@ export default function Navbar() {
                   <Disclosure.Button
                     key={item.name}
                     as="a"
-                    href={item.name}
+                    href={"/"+item.name}
                     className={classNames(
                       current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'block rounded-md px-3 py-2 text-base font-medium'

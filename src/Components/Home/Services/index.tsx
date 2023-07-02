@@ -1,28 +1,28 @@
 const callouts = [
     {
-      name: 'Desk and Office',
+      name: 'Kitchen hob',
       description: 'Work from home accessories',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg',
       imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
-      href: '#',
+      href: 'Services/KitchenHob',
     },
     {
-      name: 'Self-Improvement',
+      name: 'Oven',
       description: 'Journals and note-taking',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg',
       imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-      href: '#',
+      href: 'Services/Oven',
     },
     {
-      name: 'Travel',
+      name: 'Chimney',
       description: 'Daily commute essentials',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
       imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-      href: '#',
+      href: 'Services/Chimney',
     },
   ]
   
-  export default function Services() {
+  export default function Service() {
     return (
       <div className="bg-gray-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

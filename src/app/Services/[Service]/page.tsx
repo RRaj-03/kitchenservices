@@ -3,15 +3,15 @@ import Testinomials from '@/Components/Home/Testinomials'
 import ServiceOverview from '@/Components/Services/Overview'
 import Pricing from '@/Components/Services/Pricing'
 import React from 'react'
-import Service from '@/Components/Home/Services'
-import ServiceFeature from '@/Components/Services/Features'
-const Services = () => {
+const index = ({ params }: { params: { Service: string } }) => { 
   return (
     <div>
-      <Service/>
-      <ServiceFeature/>
+    <ServiceOverview Service={params.Service}/>
+      <Pricing/>
+      <Brand/>
+      <Testinomials/>
     </div>
   )
 }
 
-export default Services
+export default index
