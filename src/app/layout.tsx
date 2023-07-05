@@ -2,7 +2,8 @@ import Navbar from '@/Components/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Footer from '@/Components/Footer'
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,10 +19,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar/>
+        <Navbar />
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        
         {children}
-        <Footer/>
-        </body>
+        <Footer />
+      </body>
     </html>
   )
 }
