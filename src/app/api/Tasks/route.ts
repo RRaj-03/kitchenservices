@@ -51,7 +51,9 @@ export async function POST(request:Request) : Promise<Response>{
               'to_email':process.env.EMAIL
             }
         };
-        axios.post("https://api.emailjs.com/api/v1.0/email/send",data,{headers:{'Content-Type':"application/json"}})
+        axios.post("https://api.emailjs.com/api/v1.0/email/send",data,{headers:{'Content-Type':"application/json"}}).then((res)=>{
+          console.log(res)
+        })
           if(task.email){
             const data = {
               service_id: process.env.EMAIL_SERVICE_ID,
@@ -64,7 +66,9 @@ export async function POST(request:Request) : Promise<Response>{
                 'to_email':task.email
               }
           };
-          axios.post("https://api.emailjs.com/api/v1.0/email/send",data,{headers:{'Content-Type':"application/json"}})
+          axios.post("https://api.emailjs.com/api/v1.0/email/send",data,{headers:{'Content-Type':"application/json"}}).then((res)=>{
+            console.log(res)
+          })
           }
         console.log('ele', ele.insertedId.toString())
         })
