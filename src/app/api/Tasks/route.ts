@@ -35,11 +35,11 @@ export async function POST(request:Request) : Promise<Response>{
         const Services = client.db("KitchenServices").collection("Tasks")
         const length = Services.insertOne(task)
         length.then((ele)=>{
-          axios.post(`https://sms.api.sinch.com/xms/v1/${process.env.SMS_SERVICE_ID}/batches`,{
-            "from": "447520651607",
-            "to": [ `91${task.phone}` ],
-            "body": `Your Appointment is Succesfully Booked. Your Appointment ID is ${ele.insertedId.toString()}. We will contact you soon`
-          },{headers:{"Content-Type": "application/json",Authorization: `Bearer ${process.env.SMS_BEARER}`}})
+          // axios.post(`https://sms.api.sinch.com/xms/v1/${process.env.SMS_SERVICE_ID}/batches`,{
+          //   "from": "447520651607",
+          //   "to": [ `91${task.phone}` ],
+          //   "body": `Your Appointment is Succesfully Booked. Your Appointment ID is ${ele.insertedId.toString()}. We will contact you soon`
+          // },{headers:{"Content-Type": "application/json",Authorization: `Bearer ${process.env.SMS_BEARER}`}})
           const data = {
             service_id: process.env.EMAIL_SERVICE_ID,
             template_id: process.env.EMAIL_TEMPLATE_ID1,
