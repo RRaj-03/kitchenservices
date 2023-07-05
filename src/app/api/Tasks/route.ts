@@ -62,7 +62,7 @@ export async function POST(request:Request) : Promise<Response>{
               accessToken : process.env.EMAIL_PRIVATE_KEY,
               template_params: {
                 name:(task.firstName+task.lastName),
-                id: ele,
+                id: ele.insertedId.toString(),
                 'to_email':task.email
               }
           };
