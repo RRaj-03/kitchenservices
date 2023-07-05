@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Footer from '@/Components/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({
         />
         
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
