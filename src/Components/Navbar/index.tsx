@@ -1,5 +1,5 @@
 "use client"
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition, Listbox } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon, CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -18,13 +18,17 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   const useKitchen = useKitchenStore()
-  useKitchen.SetCities()
   const cities = useKitchenStore(state => state.cities)
   const services = useKitchenStore(state => state.Services)
   const selectcity = useKitchenStore(state => state.selectedCity)
   const pathname = usePathname()
   const router = useRouter()
   const [current, setCurrent] = useState<string>('Home')
+  useEffect(() => {
+    useKitchen.SetCities()
+
+  }, [])
+  
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800 relative z-10 ">
