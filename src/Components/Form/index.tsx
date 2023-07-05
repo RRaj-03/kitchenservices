@@ -21,7 +21,7 @@ interface MyFormValues {
   date: Date;
 }
 const Form = () => {
-  const [services, setServices] = useState<any>([])
+  const services = useKitchenStore(state=>state.allServices)
   const [price, setPrice] = useState<any>([])
   const [city, setCity] = useState<any>([])
   const useKitchen = useKitchenStore()
@@ -117,13 +117,6 @@ const Form = () => {
       
     },
   });
-  useEffect(() => {
-    axios.get("/api/Services").then(
-      (res)=>{
-        setServices(res.data.value)
-      }
-    )
-  }, [])
   
   useEffect(() => {
     let temp = formik.values.service.pricing.map(function(o) {
