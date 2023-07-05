@@ -34,7 +34,7 @@ export async function POST(request:Request) : Promise<Response>{
         const client = await clientPromise;
         const Services = client.db("KitchenServices").collection("Tasks")
         const length = Services.insertOne(task)
-        length.then((ele)=>{
+        length.then(async (ele)=>{
           // axios.post(`https://sms.api.sinch.com/xms/v1/${process.env.SMS_SERVICE_ID}/batches`,{
           //   "from": "447520651607",
           //   "to": [ `91${task.phone}` ],
@@ -51,9 +51,7 @@ export async function POST(request:Request) : Promise<Response>{
               'to_email':process.env.EMAIL
             }
         };
-        axios.post("https://api.emailjs.com/api/v1.0/email/send",data,{headers:{'Content-Type':"application/json"}}).then((res)=>{
-          console.log(res)
-        })
+        await axios.post("https://api.emailjs.com/api/v1.0/email/send",data,{headers:{'Content-Type':"application/json"}})
           if(task.email){
             const data = {
               service_id: process.env.EMAIL_SERVICE_ID,
@@ -66,9 +64,7 @@ export async function POST(request:Request) : Promise<Response>{
                 'to_email':task.email
               }
           };
-          axios.post("https://api.emailjs.com/api/v1.0/email/send",data,{headers:{'Content-Type':"application/json"}}).then((res)=>{
-            console.log(res)
-          })
+          await axios.post("https://api.emailjs.com/api/v1.0/email/send",data,{headers:{'Content-Type':"application/json"}})
           }
         console.log('ele', ele.insertedId.toString())
         })
