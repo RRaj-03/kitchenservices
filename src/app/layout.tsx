@@ -16,6 +16,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  process.on('uncaughtException', function (err) {
+    console.log(err);
+}); 
   return (
     <html lang="en">
       <body className={inter.className}>

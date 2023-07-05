@@ -4,6 +4,7 @@ import { JSXElementConstructor, Key, PromiseLikeOfReactNode, ReactElement, React
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import Accordion from '../Accordion'
+import Link from 'next/link'
 
 
 
@@ -22,9 +23,9 @@ export default function ServiceOverview({product}:{product:any}) {
             {product.breadcrumbs.map((breadcrumb: any) => (
               <li key={breadcrumb.id}>
                 <div className="flex items-center">
-                  <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
+                  <Link href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
                     {breadcrumb.name}
-                  </a>
+                  </Link>
                   <svg
                     width={16}
                     height={20}
@@ -39,9 +40,9 @@ export default function ServiceOverview({product}:{product:any}) {
               </li>
             ))}
             <li className="text-sm">
-              <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+              <Link href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
                 {product.name}
-              </a>
+              </Link>
             </li>
           </ol>
         </nav>
@@ -102,9 +103,9 @@ export default function ServiceOverview({product}:{product:any}) {
                   ))}
                 </div>
                 <p className="sr-only">{product.reviews.average} out of 5 stars</p>
-                <a href={product.reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                <Link href={product.reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                   {product.reviews.totalCount} reviews
-                </a>
+                </Link>
               </div>
             </div>
           </div>

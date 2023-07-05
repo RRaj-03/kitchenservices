@@ -8,7 +8,8 @@ import * as Yup from 'yup';
 import axios from 'axios'
 import dayjs from 'dayjs'
 import { toast } from 'react-toastify';
-
+import useKitchenStore from '@/Helpers/Store/KitchenStore'
+import { useRouter } from 'next/navigation'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -23,14 +24,16 @@ const Form = () => {
   const [services, setServices] = useState<any>([])
   const [price, setPrice] = useState<any>([])
   const [city, setCity] = useState<any>([])
+  const useKitchen = useKitchenStore()
+  const router = useRouter()
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      date: dayjs().format("YYYY-MM-DD").toString(),
-      phone: '',
-      service: {
+      firstName: useKitchen.firstName||'',
+      lastName: useKitchen.lastName||'',
+      email: useKitchen.email||'',
+      date: useKitchen.date||dayjs().format("YYYY-MM-DD").toString(),
+      phone: useKitchen.phone||'',
+      service: useKitchen.service||{
         _id: "",
         name: "Select",
         href: "",
@@ -60,9 +63,9 @@ const Form = () => {
         type: "",
         cities:[]
       },
-      price:'',
-      city:'',
-      address:'',
+      price:useKitchen.price||'',
+      city:useKitchen.selectedCity||'',
+      address:useKitchen.address||'',
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -105,10 +108,13 @@ const Form = () => {
       }
       axios.post("/api/Tasks",data).then((res:any)=>{
         toast.success(res.data.value)
+        useKitchen.SetForm({...data,"service":values.service})
+        router.push("/Home")
       }).catch(err=>{
         console.log('err', err)
         toast.error(err.message)
       })
+      
     },
   });
   useEffect(() => {
@@ -488,7 +494,7 @@ const Form = () => {
         </div>
         <label className="text-sm leading-6 text-gray-600" id="switch-1-label">
           By selecting this, you agree to our
-          <a href="#" className="font-semibold text-indigo-600">privacy&nbsp;policy</a>.
+          <Link href="#" className="font-semibold text-indigo-600">privacy&nbsp;policy</Link>.
         </label>
       </div> */}
     </div>

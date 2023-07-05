@@ -1,24 +1,29 @@
 "use client"
 import { Fragment, useState } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { Disclosure, Menu, Transition, Listbox } from '@headlessui/react'
+import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon, CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import useKitchenStore from '@/Helpers/Store/KitchenStore'
+import { usePathname, useRouter } from 'next/navigation'
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
   { name: 'Team', href: '#', current: false },
   { name: 'Services', href: '#', current: false },
 ]
-const cities = [
-  'Pune',
-  'Kolkata',
-  'Ahemdabad'
-]
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Navbar() {
+  const useKitchen = useKitchenStore()
+  useKitchen.SetCities()
+  const cities = useKitchenStore(state => state.cities)
+  const services = useKitchenStore(state => state.Services)
+  const selectcity = useKitchenStore(state => state.selectedCity)
+  const pathname = usePathname()
+  const router = useRouter()
   const [current, setCurrent] = useState<string>('Home')
   return (
     <>
@@ -39,7 +44,7 @@ export default function Navbar() {
                   </Disclosure.Button>
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                  <Link href={'Home'} className="flex flex-shrink-0 items-center">
+                  <Link href={'/Home'} className="flex flex-shrink-0 items-center">
                     <img
                       className="block h-8 w-auto lg:hidden"
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
@@ -59,36 +64,155 @@ export default function Navbar() {
 
 
                 <div className='items-center pr-2 ml-6 rounded-md hidden md:flex'>
-                <div className="relative items-center pr-2 ml-6 pl-2 rounded-md">
-                <div className="absolute inset-y-0 right-0 flex items-center bg-indigo-500 mr-1">
-                <MagnifyingGlassIcon className="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400 "
-                  aria-hidden="true"/>
+                  
+                  <div className="relative items-center w-[12rem] pr-2 ml-2 pl-2 rounded-md">
+                    
 
-
-                </div>
-                <input
-                  type="text"
-                  name="search"
-                  id="search"
-                  autoComplete="given-name"
-                  placeholder='Search for Service Here'
-                  className="block w-full rounded-md border-0 px-3.5 py-[0.2rem] pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
- 
-
-              </div>
-                  <div className="flex items-center pr-2 ml-6 rounded-md ">
-
-                    <select
-                      id="country"
-                      name="country"
-                      autoComplete="country-name"
-                      className="block w-full rounded-md border-0 py-1.5 px-1.5 text-white shadow-sm ring-1 ring-inset bg-slate-600 ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    <Listbox
+                      onChange={(ele) => {
+                        useKitchen.setSelectedCity(ele)
+                        if (pathname.split('/')[1] === "Services" && pathname.split('/').length > 2) {
+                          router.replace('/Services')
+                        }
+                      }} value={selectcity}
                     >
-                      {cities.map((city) => {
-                        return <option>{city}</option>
-                      })}
-                    </select>
+                      {({ open }) => (
+                        <>
+                          <Listbox.Button className="relative w-full min-w-16 cursor-default rounded-md bg-white py-1 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                            <span className="flex items-center">
+                              {/* <img src={selectedPrice.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
+                              <span className="block truncate" >{selectcity}</span>
+                            </span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                              <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                            </span>
+                          </Listbox.Button>
+
+                          <Transition
+                            show={open}
+                            as={Fragment}
+                            leave="transition ease-in duration-100"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full min-w-max overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                              {cities.map((person: string) => (
+                                <Listbox.Option
+                                  key={person}
+                                  className={({ active }) =>
+                                    classNames(
+                                      active ? 'bg-indigo-600 text-white' : 'text-gray-900',
+                                      'relative cursor-default select-none py-2 pl-3 pr-9'
+                                    )
+                                  }
+                                  value={person}
+                                >
+                                  {({ selected, active }) => (
+                                    <>
+                                      <div className="flex items-center">
+                                        {/* <img src={person.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
+                                        <span
+                                          className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
+                                        >
+                                          {person}
+                                        </span>
+                                      </div>
+
+                                      {selected ? (
+                                        <span
+                                          className={classNames(
+                                            active ? 'text-white' : 'text-indigo-600',
+                                            'absolute inset-y-0 right-0 flex items-center pr-4'
+                                          )}
+                                        >
+                                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </Listbox.Option>
+                              ))}
+                            </Listbox.Options>
+                          </Transition>
+                        </>
+                      )}
+                    </Listbox>
+
+
+                  </div>
+                  <div className="relative items-center w-[16rem] pr-2 ml-6 pl-2 rounded-md">
+                    
+
+                    <Listbox
+                      onChange={(ele) => {
+                        router.push(`/Services/${ele.split(" ").join("-")}`)
+                      }}
+                    >
+                      {({ open }) => (
+                        <>
+                          <Listbox.Button className="relative w-full min-w-16 cursor-default rounded-md bg-white py-1 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                            <span className="flex items-center">
+                              {/* <img src={selectedPrice.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
+                              <span className="block truncate" >Search For Service Here</span>
+                            </span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                            <MagnifyingGlassIcon className="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400 "
+                        aria-hidden="true" />
+                            </span>
+                          </Listbox.Button>
+
+                          <Transition
+                            show={open}
+                            as={Fragment}
+                            leave="transition ease-in duration-100"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full min-w-max overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                    
+                              {services.map((service:{_id:string,name:string}) => (
+                                <Listbox.Option
+                                  key={service._id}
+                                  className={({ active }) =>
+                                    classNames(
+                                      active ? 'bg-indigo-600 text-white' : 'text-gray-900',
+                                      'relative cursor-default select-none py-2 pl-3 pr-9'
+                                    )
+                                  }
+                                  value={service.name}
+                                >
+                                  {({ selected, active }) => (
+                                    <>
+                                      <div className="flex items-center">
+                                        {/* <img src={person.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
+                                        <span
+                                          className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
+                                        >
+                                          {service.name}
+                                        </span>
+                                      </div>
+
+                                      {selected ? (
+                                        <span
+                                          className={classNames(
+                                            active ? 'text-white' : 'text-indigo-600',
+                                            'absolute inset-y-0 right-0 flex items-center pr-4'
+                                          )}
+                                        >
+                                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </Listbox.Option>
+                              ))}
+                            </Listbox.Options>
+                          </Transition>
+                        </>
+                      )}
+                    </Listbox>
+
+
                   </div>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -96,7 +220,7 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
-                        href={"/"+item.name}
+                        href={"/" + item.name}
                         className={classNames(
                           current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
@@ -118,60 +242,182 @@ export default function Navbar() {
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-0.5 pb-3 pt-2">
                 {navigation.map((item) => (
+                  <Link href={"/" + item.name}>
                   <Disclosure.Button
                     key={item.name}
-                    as="a"
-                    href={"/"+item.name}
+                    as="div"
                     className={classNames(
                       current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'block rounded-md px-3 py-2 text-base font-medium'
                     )}
-                    onClick={()=>{
+                    onClick={() => {
                       setCurrent(item.name)
                     }}
                     aria-current={current === item.name ? 'page' : undefined}
                   >
                     {item.name}
+                    
                   </Disclosure.Button>
+                  </Link>
                 ))}
               </div>
             </Disclosure.Panel>
             <div className='items-center justify-center pb-2 pr-2 text-sm ml-2  rounded-md flex md:hidden'>
-           
-
-                      <label htmlFor="search" className='hidden sm:inline mr-2 text-gray-300'>Search:</label>
-              <div className="relative items-center pr-2 rounded-md">
-                <div className="absolute inset-y-0 right-0 flex items-center bg-indigo-500 mr-1">
-                <MagnifyingGlassIcon className="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400 "
-                  aria-hidden="true"/>
 
 
-                </div>
-                <input
-                  type="text"
-                  name="search"
-                  id="search"
-                  autoComplete="given-name"
-                  placeholder='Search for Service Here'
-                  className="block w-full rounded-md border-0 px-3.5 py-1 pr-10 text-gray-900 shadow-sm ring-1 ring-inset bg-slate-600 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
- 
+                  <label htmlFor="search" className='hidden sm:inline mr-2 text-gray-300'>City:</label>
+                  <div className="relative items-center w-[12rem] pr-2 ml-0 mr-4 pl-2 rounded-md">
+                    
 
-              </div>
-              <div className="flex items-center pr-2 ml-6 rounded-md ">
-                      <label htmlFor="search" className='hidden sm:inline mr-2 text-gray-300'>City:</label>
+                    <Listbox
+                      onChange={(ele) => {
+                        useKitchen.setSelectedCity(ele)
+                        if (pathname.split('/')[1] === "Services" && pathname.split('/').length > 2) {
+                          router.replace('/Services')
+                        }
+                      }} value={selectcity}
+                    >
+                      {({ open }) => (
+                        <>
+                          <Listbox.Button className="relative w-full min-w-16 cursor-default rounded-md bg-white py-1 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                            <span className="flex items-center">
+                              {/* <img src={selectedPrice.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
+                              <span className="block truncate" >{selectcity}</span>
+                            </span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                              <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                            </span>
+                          </Listbox.Button>
 
-                <select
-                  id="country"
-                  name="country"
-                  autoComplete="country-name"
-                  className="block  rounded-md border-0 py-1.5 px-1.5 text-gray-300 shadow-sm ring-1 ring-inset bg-slate-600 ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                >
-                  {cities.map((city) => {
-                    return <option>{city}</option>
-                  })}
-                </select>
-              </div>
+                          <Transition
+                            show={open}
+                            as={Fragment}
+                            leave="transition ease-in duration-100"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full min-w-max overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                              {cities.map((person: string) => (
+                                <Listbox.Option
+                                  key={person}
+                                  className={({ active }) =>
+                                    classNames(
+                                      active ? 'bg-indigo-600 text-white' : 'text-gray-900',
+                                      'relative cursor-default select-none py-2 pl-3 pr-9'
+                                    )
+                                  }
+                                  value={person}
+                                >
+                                  {({ selected, active }) => (
+                                    <>
+                                      <div className="flex items-center">
+                                        {/* <img src={person.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
+                                        <span
+                                          className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
+                                        >
+                                          {person}
+                                        </span>
+                                      </div>
+
+                                      {selected ? (
+                                        <span
+                                          className={classNames(
+                                            active ? 'text-white' : 'text-indigo-600',
+                                            'absolute inset-y-0 right-0 flex items-center pr-4'
+                                          )}
+                                        >
+                                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </Listbox.Option>
+                              ))}
+                            </Listbox.Options>
+                          </Transition>
+                        </>
+                      )}
+                    </Listbox>
+
+
+                  </div>
+
+              <label htmlFor="search" className='hidden sm:inline mr-2 text-gray-300'>Search:</label>
+                  <div className="relative items-center w-[16rem] pr-2 ml-0 pl-2 rounded-md">
+                    
+
+                    <Listbox
+                      onChange={(ele) => {
+                        router.push(`/Services/${ele.split(" ").join("-")}`)
+                      }}
+                    >
+                      {({ open }) => (
+                        <>
+                          <Listbox.Button className="relative w-full min-w-16 cursor-default rounded-md bg-white py-1 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                            <span className="flex items-center">
+                              {/* <img src={selectedPrice.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
+                              <span className="block truncate" >Search For Service Here</span>
+                            </span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                            <MagnifyingGlassIcon className="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400 "
+                        aria-hidden="true" />
+                            </span>
+                          </Listbox.Button>
+
+                          <Transition
+                            show={open}
+                            as={Fragment}
+                            leave="transition ease-in duration-100"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full min-w-max overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                    
+                              {services.map((service:{_id:string,name:string}) => (
+                                <Listbox.Option
+                                  key={service._id}
+                                  className={({ active }) =>
+                                    classNames(
+                                      active ? 'bg-indigo-600 text-white' : 'text-gray-900',
+                                      'relative cursor-default select-none py-2 pl-3 pr-9'
+                                    )
+                                  }
+                                  value={service.name}
+                                >
+                                  {({ selected, active }) => (
+                                    <>
+                                      <div className="flex items-center">
+                                        {/* <img src={person.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
+                                        <span
+                                          className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
+                                        >
+                                          {service.name}
+                                        </span>
+                                      </div>
+
+                                      {selected ? (
+                                        <span
+                                          className={classNames(
+                                            active ? 'text-white' : 'text-indigo-600',
+                                            'absolute inset-y-0 right-0 flex items-center pr-4'
+                                          )}
+                                        >
+                                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </Listbox.Option>
+                              ))}
+                            </Listbox.Options>
+                          </Transition>
+                        </>
+                      )}
+                    </Listbox>
+
+
+                  </div>
+             
             </div>
           </>
         )}
