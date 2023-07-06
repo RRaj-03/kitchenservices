@@ -67,9 +67,9 @@ export default function Navbar() {
                 </div>
 
 
-                <div className='items-center pr-2 ml-6 rounded-md hidden md:flex'>
+                <div className='items-center pr-2 ml-8 rounded-md hidden md:flex'>
                   
-                  <div className="relative items-center w-[12rem] pr-2 ml-2 pl-2 rounded-md">
+                  <div className="relative items-center min-w-[8rem] pr-2 ml-2 pl-2 rounded-md">
                     
 
                     <Listbox
@@ -144,7 +144,7 @@ export default function Navbar() {
 
 
                   </div>
-                  <div className="relative items-center w-[16rem] pr-2 ml-6 pl-2 rounded-md">
+                  <div className="relative items-center min-w-[8rem] pr-2 ml-6 md:ml-0 pl-2 rounded-md">
                     
 
                     <Listbox
@@ -219,8 +219,8 @@ export default function Navbar() {
 
                   </div>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
+                <div className="hidden sm:ml-2  sm:block">
+                  <div className="flex space-x-2 items-center">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
@@ -237,6 +237,17 @@ export default function Navbar() {
                         {item.name}
                       </Link>
                     ))}
+                    <div
+                        key={"Book Now"}
+                        className={'text-white whitespace-nowrap bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 md:px-2 lg:px-5 py-2.5 text-center'
+                        }
+                        onClick={() => {
+                          useKitchen.SetModalOpen(true)
+                        }}
+                        aria-current={current === "Book Now" ? 'page' : undefined}
+                      >
+                        {"Book Now"}
+                      </div>
                   </div>
                 </div>
 
@@ -264,13 +275,24 @@ export default function Navbar() {
                   </Disclosure.Button>
                   </Link>
                 ))}
+                <div
+                        key={"Book Now"}
+                        className={'text-white whitespace-nowrap bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 md:px-2 lg:px-5 py-2.5 '
+                        }
+                        onClick={() => {
+                          useKitchen.SetModalOpen(true)
+                        }}
+                        aria-current={current === "Book Now" ? 'page' : undefined}
+                      >
+                        {"Book Now"}
+                      </div>
               </div>
             </Disclosure.Panel>
             <div className='items-center justify-center pb-2 pr-2 text-sm ml-2  rounded-md flex md:hidden'>
 
 
                   <label htmlFor="search" className='hidden sm:inline mr-2 text-gray-300'>City:</label>
-                  <div className="relative items-center w-[12rem] pr-2 ml-0 mr-4 pl-2 rounded-md">
+                  <div className="relative items-center min-w-[8rem] pr-2 ml-0 sm:mr-4 pl-2 rounded-md">
                     
 
                     <Listbox
@@ -347,7 +369,7 @@ export default function Navbar() {
                   </div>
 
               <label htmlFor="search" className='hidden sm:inline mr-2 text-gray-300'>Search:</label>
-                  <div className="relative items-center w-[16rem] pr-2 ml-0 pl-2 rounded-md">
+                  <div className="relative items-center min-w-[8rem] pr-2 ml-0 pl-2 rounded-md">
                     
 
                     <Listbox

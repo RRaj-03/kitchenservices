@@ -3,7 +3,7 @@ import { combine } from 'zustand/middleware'
 import dayjs from 'dayjs'
 import axios from 'axios'
 interface KitchenState {
-    
+    ModalOpen:boolean;
     firstName: string;
     lastName: string;
     email: string;
@@ -90,9 +90,10 @@ SetCities: () => void
 setSelectedCity: (selectedCity: string) => void
 setServiceForm: (ele: any) => void
 setPriceForm: (ele: any) => void
+SetModalOpen:(ModalOpen: boolean) => void
 }
 const useKitchenStore = create<KitchenState>()((set,get) => ({
-        
+        ModalOpen:true,
             firstName: '',
         lastName: '',
         email: '',
@@ -130,7 +131,7 @@ const useKitchenStore = create<KitchenState>()((set,get) => ({
         cities:[],
         selectedCity:"gorakhpur",
     
-       
+            SetModalOpen:(ModalOpen: boolean) => set(() => ({ ModalOpen: ModalOpen })),
             SetForm : (form:any)=>{
                 set(
                     {...form}

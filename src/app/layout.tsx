@@ -5,6 +5,7 @@ import Footer from '@/Components/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Analytics } from '@vercel/analytics/react';
+import Modal from '@/Components/Modal';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -40,6 +41,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <Footer />
+        <Modal/>
       </body>
     </html>
   )
