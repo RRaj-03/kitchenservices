@@ -170,6 +170,11 @@ const useKitchenStore = create<KitchenState>()((set,get) => ({
             },
             setSelectedCity: (selectedCity: string)=>{
                 set({selectedCity:selectedCity})
+                const city = get().selectedCity
+                const service = get().allServices.filter((ele: { cities: string[] })=>{
+                    return ele.cities.includes(city)
+                })
+                set({Services:service})
             },
             setServiceForm:(ele:any)=>{
                 set({service:ele})
