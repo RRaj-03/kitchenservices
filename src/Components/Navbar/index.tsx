@@ -237,17 +237,19 @@ export default function Navbar() {
                         {item.name}
                       </Link>
                     ))}
-                    <div
+                    <Link
+                    
+                href={"/BookAppointment"}
                         key={"Book Now"}
                         className={'text-white whitespace-nowrap bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 md:px-2 lg:px-5 py-2.5 text-center'
                         }
-                        onClick={() => {
-                          useKitchen.SetModalOpen(true)
-                        }}
+                        // onClick={() => {
+                        //   useKitchen.SetModalOpen(true)
+                        // }}
                         aria-current={current === "Book Now" ? 'page' : undefined}
                       >
                         {"Book Now"}
-                      </div>
+                      </Link>
                   </div>
                 </div>
 
@@ -275,17 +277,18 @@ export default function Navbar() {
                   </Disclosure.Button>
                   </Link>
                 ))}
-                <div
+                <Link
+                href={"/BookAppointment"}
                         key={"Book Now"}
                         className={'text-white whitespace-nowrap bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 md:px-2 lg:px-5 py-2.5 '
                         }
-                        onClick={() => {
-                          useKitchen.SetModalOpen(true)
-                        }}
+                        // onClick={() => {
+                        //   useKitchen.SetModalOpen(true)
+                        // }}
                         aria-current={current === "Book Now" ? 'page' : undefined}
                       >
                         {"Book Now"}
-                      </div>
+                      </Link>
               </div>
             </Disclosure.Panel>
             <div className='items-center justify-center pb-2 pr-2 text-sm ml-2  rounded-md flex md:hidden'>

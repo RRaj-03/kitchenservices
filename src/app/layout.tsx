@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Analytics } from '@vercel/analytics/react';
 import Modal from '@/Components/Modal';
+import { Call, Whatsapp } from '@/Components/FixedIcons/Whatsapp';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -42,6 +43,8 @@ export default function RootLayout({
         <Analytics />
         <Footer />
         <Modal/>
+        <Whatsapp/>
+        <Call/>
       </body>
     </html>
   )

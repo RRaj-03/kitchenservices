@@ -1,26 +1,39 @@
+import {  DocumentCheckIcon, HomeIcon, PencilSquareIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 const steps = [
     {
         title: 'Book a Service',
-        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!'
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!',
+        icon:PencilSquareIcon
     },
     {
         title: 'Technician Visit',
-        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!'
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!',
+        icon:HomeIcon
     },
     {
         title: 'Servicing of the Product',
-        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!'
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!',
+        icon:WrenchScrewdriverIcon
     },
     {
         title: 'Give Feedback',
-        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!'
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!',
+        icon:DocumentCheckIcon
     }
 ]
 const Steps = () => {
   return (
     <section className="text-gray-600 body-font">
-        
+        <div className="mx-auto max-w-2xl lg:text-center pt-24">
+        <h2 className="text-base font-semibold leading-7 text-indigo-600">Kitchen Services</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+           Easy Steps To A Comfortable Service
+          </p>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+          We are constantly working to give you the best service you can ever wish for and constantly evolving from your feedback.
+          </p>
+        </div>
   <div className="container px-5 py-24 mx-auto flex flex-wrap">
     {
         steps.map((item,Index)=>{
@@ -31,9 +44,7 @@ const Steps = () => {
             <div className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">{Index+1}</div>
             <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
               <div className="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-12 h-12" viewBox="0 0 24 24">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
+              <item.icon className="h-10 w-10 text-indigo-500" aria-hidden="true" />
               </div>
               <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
                 <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">{item.title}</h2>

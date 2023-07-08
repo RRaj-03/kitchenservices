@@ -1,29 +1,29 @@
-import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
+import { WrenchScrewdriverIcon,BuildingOffice2Icon, CurrencyRupeeIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
 
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'EXPERT REPAIRERS',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: CloudArrowUpIcon,
+      'We have experienced technicians for all the home & kitchen services to ensure that you get top-quality solutions.',
+    icon: WrenchScrewdriverIcon,
   },
   {
-    name: 'SSL certificates',
+    name: 'COST EFFECTIVE',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-    icon: LockClosedIcon,
+      'Our services are the most economical in Mumbai and Hyderabad. Starting at only ₹199.',
+    icon: CurrencyRupeeIcon,
   },
   {
-    name: 'Simple queues',
+    name: 'MULTIPLE BRANDS & MODELS',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-    icon: ArrowPathIcon,
+      'We repair kitchen appliances of all brands and models, including Phillips, Bajaj, Prestige, Bosch, and many more.',
+    icon: BuildingOffice2Icon,
   },
   {
-    name: 'Advanced security',
+    name: 'SAME DAY SERVICE',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-    icon: FingerPrintIcon,
+      'When you book a service with Urban Repairing, our expert technicians reach your doorstep at the scheduled time.',
+    icon: RocketLaunchIcon,
   },
 ]
 
@@ -32,13 +32,12 @@ export default function About() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">Kitchen Services</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need to deploy your app
+           Delivering Services at Your DoorStep
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+          We are the most trusted kitchen appliance repair and services brand in Mumbai, Hyderabad, and Pune, with 5,000+ happy customers.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

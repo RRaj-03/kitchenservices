@@ -1,47 +1,70 @@
+"use client"
+import React from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper';
+
+const brands=['Prestige','Elica','Hindware','Pigeon','Philips','Surya','Sunflame','Bosch','Bajaj','Whirlpool','Godrej','LG'
+]
+import Image from "next/image"
 export default function Brand() {
     return (
-      <div className="bg-indigo-500 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="bg-indigo-500 py-16 ">
+        <div className="mx-auto  px-6 lg:px-0">
           <h2 className="text-center text-lg font-semibold leading-8 text-slate-200">
             Trusted by the world’s most innovative teams
           </h2>
-          <div className="mx-auto invert mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-            <img
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
-              alt="Transistor"
-              width={158}
-              height={48}
+         
+          <Swiper
+          // slidesPerView={'auto'}
+        // centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 3,
+            slidesPerGroup:1,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 5,
+            slidesPerGroup:1,
+            spaceBetween: 0,
+          }
+        }}
+      //  spaceBetween={30}
+        loop={true}
+        modules={[Autoplay, Pagination,Navigation]}
+        className="mySwiper h-[200px] sm:w-[620px] lg:w-[1000px]"
+      >
+        {brands.map((brand)=>{
+              return <SwiperSlide style={{width:'200px'}} className='m-0 w-auto !flex items-center justify-center'>
+                <div className='glassMorphism'>
+                <Image
+              className=" mr-0 w-[160px]   inline-block object-contain lg:col-span-1"
+              src={'/Images/Brands/'+brand+'.png'}
+              alt={brand}
+              width={200}
+              height={200}
             />
-            <img
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
-              alt="Reform"
-              width={158}
-              height={48}
-            />
-            <img
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
-              alt="Tuple"
-              width={158}
-              height={48}
-            />
-            <img
-              className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
-              alt="SavvyCal"
-              width={158}
-              height={48}
-            />
-            <img
-              className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
-              alt="Statamic"
-              width={158}
-              height={48}
-            />
-          </div>
+                </div>
+              </SwiperSlide>
+            })}
+        
+      </Swiper>
+            
+          
         </div>
       </div>
     )
