@@ -7,7 +7,7 @@ import PriceComponent from './PriceComponent';
 const Pricing = ({Price_list,topindex}:any) => {
 
   return (
-    <section className="text-gray-600 body-font overflow-hidden">
+    <section className="text-gray-600 bg-white body-font overflow-hidden">
   <div className="container px-5 pb-24 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">
       <h1 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Pricing</h1>

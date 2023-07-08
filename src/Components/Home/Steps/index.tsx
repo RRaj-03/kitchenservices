@@ -24,8 +24,8 @@ const steps = [
 ]
 const Steps = () => {
   return (
-    <section className="text-gray-600 body-font">
-        <div className="mx-auto max-w-2xl lg:text-center pt-24">
+    <section className="text-gray-600 body-font bg-white">
+        <div className="mx-auto max-w-2xl lg:text-center pt-24 px-8">
         <h2 className="text-base font-semibold leading-7 text-indigo-600">Kitchen Services</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
            Easy Steps To A Comfortable Service

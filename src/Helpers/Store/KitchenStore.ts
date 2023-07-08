@@ -129,7 +129,7 @@ const useKitchenStore = create<KitchenState>()((set,get) => ({
         allServices: [],
         Services:[],
         cities:[],
-        selectedCity:"gorakhpur",
+        selectedCity:"",
     
             SetModalOpen:(ModalOpen: boolean) => set(() => ({ ModalOpen: ModalOpen })),
             SetForm : (form:any)=>{
@@ -157,7 +157,8 @@ const useKitchenStore = create<KitchenState>()((set,get) => ({
                                 }
                             })
                         })
-                        const city = get().selectedCity
+                        set({selectedCity:get().cities[0]})
+                        const city = get().cities[0]
                 const service = res.data.value.filter((ele:any)=>{
                     return ele.cities.includes(city)
                 })

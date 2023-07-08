@@ -1,5 +1,7 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+import fs from 'fs'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,8 +14,10 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Keyboard,Autoplay, Pagination, Navigation } from 'swiper';
+import Image from 'next/image';
+const Images = ['Banner1','Banner2','Banner3']
 export default function Carousel() {
-  
+
   return (
     <>
       <Swiper
@@ -31,14 +35,11 @@ export default function Carousel() {
         modules={[Keyboard,Autoplay, Pagination, Navigation]}
         className="mySwiper h-[300px] w-full"
       >
-        <SwiperSlide><img className='w-full' src="https://swiperjs.com/demos/images/nature-1.jpg" /></SwiperSlide>
-        <SwiperSlide><img className='w-full' src="https://swiperjs.com/demos/images/nature-2.jpg" /></SwiperSlide>
-        <SwiperSlide><img className='w-full' src="https://swiperjs.com/demos/images/nature-3.jpg" /></SwiperSlide>
-        <SwiperSlide><img className='w-full' src="https://swiperjs.com/demos/images/nature-4.jpg" /></SwiperSlide>
-        <SwiperSlide><img className='w-full' src="https://swiperjs.com/demos/images/nature-5.jpg" /></SwiperSlide>
-        <SwiperSlide><img className='w-full' src="https://swiperjs.com/demos/images/nature-6.jpg" /></SwiperSlide>
-        <SwiperSlide><img className='w-full' src="https://swiperjs.com/demos/images/nature-7.jpg" /></SwiperSlide>
-        <SwiperSlide><img className='w-full' src="https://swiperjs.com/demos/images/nature-8.jpg" /></SwiperSlide>
+
+        {Images.map((img)=>{
+          return <SwiperSlide className='object-cover'><Image width={1920} height={800} className='w-full object-center h-full object-cover' src={"/Images/Banner&Background/"+img+'.jpg'} alt={img} /></SwiperSlide>
+        })}
+        
         
         
       </Swiper>

@@ -21,22 +21,22 @@ const featurelist = [{
 const ServiceFeature = () => {
   return (
     <section className="text-gray-600 body-font">
-      <div className="mx-auto max-w-2xl lg:text-center pt-24">
-        <h2 className="text-base font-semibold leading-7 text-indigo-600">Kitchen Services</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <div className="mx-auto max-w-2xl lg:text-center pt-32 px-16">
+        <h2 className="text-base font-semibold leading-7 text-indigo-300">Kitchen Services</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">
            Featured Works
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-          We are working on different scales to provide every Custome best Service, So that they can enjoy their lifestyle.
+          <p className="mt-6 text-lg leading-8 text-gray-300">
+          We are working on different scales to provide every Customer best Service, So that they can enjoy their lifestyle.
           </p>
         </div>
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap -m-4">
       {featurelist.map((feature)=>{
-        return <div className="p-4 md:w-1/3">
-        <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+        return <div className="p-4 w-full md:w-1/3">
+        <div className="h-full border-2 border-gray-200 bg-slate-100 border-opacity-60 rounded-lg overflow-hidden">
           <Image className="bg-gray-300 lg:h-48 md:h-36 w-full object-cover object-center" height={144} width={200} src={"/Images/Service_feature/"+feature.name.split(" ")[0]+".jpg"} alt="blog"/>
-          <div className='rounded-full bg-gray-200 inline-block absolute -translate-y-6 translate-x-4'>
+          <div className='rounded-full bg-gray-300 inline-block absolute -translate-y-6 translate-x-4'>
           <feature.icon className="h-12 w-12 p-2 text-indigo-500  " aria-hidden="true"/>
           </div>
           <div className="p-6 mt-6">

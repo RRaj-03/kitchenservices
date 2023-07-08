@@ -10,12 +10,12 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>
-      {/* <Head/> */}
+    <div >
+      <Head/>
       <Service/>
       <Carousel/>
       <About/>
-      <Stats/>
+      <Stats/>z
       <Steps/>
       <Brand/>
       <Testinomials/>

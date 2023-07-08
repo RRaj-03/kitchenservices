@@ -5,7 +5,7 @@ import React from 'react'
 
 const BookAppointment = () => {
   return (
-    <div>
+    <div className='mt-[104px] md:mt-16'>
         <Form/>
     </div>
   )

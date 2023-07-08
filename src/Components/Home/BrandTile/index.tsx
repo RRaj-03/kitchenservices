@@ -15,7 +15,7 @@ const brands=['Prestige','Elica','Hindware','Pigeon','Philips','Surya','Sunflame
 import Image from "next/image"
 export default function Brand() {
     return (
-      <div className="bg-indigo-500 py-16 ">
+      <div className="bg-transparent py-16 ">
         <div className="mx-auto  px-6 lg:px-0">
           <h2 className="text-center text-lg font-semibold leading-8 text-slate-200">
             Trusted by the world’s most innovative teams

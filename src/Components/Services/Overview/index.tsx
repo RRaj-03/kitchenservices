@@ -16,7 +16,7 @@ export default function ServiceOverview({product}:{product:any}) {
 
   return (
     <>
-    <div className="bg-white">
+    <div className="bg-white mt-[104px] md:mt-16">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">

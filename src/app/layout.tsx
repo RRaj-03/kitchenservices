@@ -25,6 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div className='pt-1 bg-cover bg-fixed bg-center bg-no-repeat shadow-lg' style={{backgroundImage:`url('/Images/Banner&Background/banner.jpg')`}}>
+          
         <Navbar />
         <ToastContainer
           position="top-center"
@@ -45,6 +47,7 @@ export default function RootLayout({
         <Modal/>
         <Whatsapp/>
         <Call/>
+        </div>
       </body>
     </html>
   )

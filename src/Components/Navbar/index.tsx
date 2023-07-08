@@ -28,12 +28,32 @@ export default function Navbar() {
     useKitchen.SetCities()
 
   }, [])
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+const [visible, setVisible] = useState(true)
+
+const handleScroll = () => {
+    const currentScrollPos = window.scrollY
+
+    if(currentScrollPos > prevScrollPos){
+        setVisible(false)
+    }else{
+        setVisible(true)
+    }
+
+    setPrevScrollPos(currentScrollPos)
+}
+
+useEffect( () => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll)
+})
   
   return (
     <>
-      <Disclosure as="nav" className="bg-gray-800 relative z-10 ">
+      <Disclosure as="nav" className={`ease-in duration-500 transition-all   z-10 fixed w-full ${visible ? 'top-0' : 'md:-top-16 -top-[104px]'}`}>
         {({ open }) => (
-          <>
+          <div className={`ease-in duration-500 transition-color ${window.scrollY===0?"hover:bg-gray-800":"bg-gray-800"} ${open?"bg-gray-800":""}`}>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -278,13 +298,10 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <Link
-                href={"/BookAppointment"}
                         key={"Book Now"}
-                        className={'text-white whitespace-nowrap bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 md:px-2 lg:px-5 py-2.5 '
+                        className={'block text-white whitespace-nowrap bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 md:px-2 lg:px-5 py-2.5 '
                         }
-                        // onClick={() => {
-                        //   useKitchen.SetModalOpen(true)
-                        // }}
+                        href={"/BookAppointment"}
                         aria-current={current === "Book Now" ? 'page' : undefined}
                       >
                         {"Book Now"}
@@ -448,7 +465,7 @@ export default function Navbar() {
                   </div>
              
             </div>
-          </>
+          </div>
         )}
 
       </Disclosure>

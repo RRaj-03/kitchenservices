@@ -8,10 +8,10 @@ import Link from "next/link"
 export default function Service() {
   const Services = useKitchenStore(state => state.Services)
   return (
-    <div className="bg-gray-100">
+    <div className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-8 sm:py-24 lg:max-w-none lg:py-32">
-          <h2 className="text-4xl font-extrabold text-gray-900">Services</h2>
+          <h2 className="text-4xl font-extrabold  text-gray-900">Services</h2>
 
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
             {Services.map((service: {

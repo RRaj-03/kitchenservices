@@ -8,8 +8,8 @@ import ServiceFeature from '@/Components/Services/Features'
 const Services = () => {
   return (
     <div>
-      <Service/>
       <ServiceFeature/>
+      <Service/>
     </div>
   )
 }
