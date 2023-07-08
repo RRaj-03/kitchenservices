@@ -53,7 +53,7 @@ useEffect( () => {
     <>
       <Disclosure as="nav" className={`ease-in duration-500 transition-all   z-10 fixed w-full ${visible ? 'top-0' : 'md:-top-16 -top-[104px]'}`}>
         {({ open }) => (
-          <div className={`ease-in duration-500 transition-color ${window.scrollY===0?"hover:bg-gray-800":"bg-gray-800"} ${open?"bg-gray-800":""}`}>
+          <div className={`ease-in duration-500 transition-color ${prevScrollPos===0?"hover:bg-gray-800":"bg-gray-800"} ${open?"bg-gray-800":""}`}>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
