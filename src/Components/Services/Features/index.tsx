@@ -35,7 +35,7 @@ const ServiceFeature = () => {
       {featurelist.map((feature,index)=>{
         return <div className="p-4 w-full md:w-1/3">
         <div className="h-full border-2 border-gray-200 bg-slate-100 border-opacity-60 rounded-lg overflow-hidden">
-          <Image className="bg-gray-300 lg:h-48 md:h-36 w-full object-cover object-center" height={144} width={200} src={"/Images/Service_feature/"+index+".jpg"} alt={"Feature"+index}/>
+          <Image className="bg-gray-300 lg:h-48 md:h-36 w-full object-cover object-center" height={144} width={200} src={"/Images/Service_feature/"+(index+1)+".jpg"} alt={"Feature"+(index+1)}/>
           <div className='rounded-full bg-gray-300 inline-block absolute -translate-y-6 translate-x-4'>
           <feature.icon className="h-12 w-12 p-2 text-indigo-500  " aria-hidden="true"/>
           </div>
