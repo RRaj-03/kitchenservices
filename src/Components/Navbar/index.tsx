@@ -76,16 +76,16 @@ useEffect( () => {
                   <Link href={'/Home'} className="flex flex-shrink-0 items-center">
                     <img
                       className="block h-8 w-auto lg:hidden"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                      src="/icon.ico"
                       alt="Your Company"
                     />
                     <img
                       className="hidden h-8 w-auto lg:block"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                      src="icon.ico"
                       alt="Your Company"
                     />
                     <div className='ml-2 hidden lg:block text-slate-200'>
-                      Your Company
+                      Kitchen Chimney Services
                     </div>
                   </Link>
 

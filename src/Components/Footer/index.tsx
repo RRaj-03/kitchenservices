@@ -29,7 +29,7 @@ const Footer = () => {
 
                                 <div className=" px-6 mt-4 lg:mt-0">
                                     <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-                                    <a className="text-indigo-500 leading-relaxed">example@email.com</a>
+                                    <a className="text-indigo-500 leading-relaxed">mayur@kitchenchimneyservices.in</a>
                                 </div>
                                 <div className=" px-6 mt-4 lg:mt-0">
                                     <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
@@ -110,7 +110,7 @@ const Footer = () => {
                 </div>
                 <hr />
                 <p className="mt-8 text-base leading-6 text-center text-gray-400">
-                    © 2021 SomeCompany, Inc. All rights reserved.
+                    © 2023 Kitchen Chimney Services, Inc. All rights reserved.
                 </p>
             </div>
         </section>)
