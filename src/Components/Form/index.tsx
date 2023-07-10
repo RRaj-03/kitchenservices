@@ -97,12 +97,16 @@ const Form = () => {
         "address": values.address
       }
       axios.post("/api/Tasks",data).then((res:any)=>{
-        toast.success(res.data.value.message)
+        if(res.status===200){
+          toast.success(res.data.value.message)
         useKitchen.SetForm({...data,"service":values.service})
         if(res?.data?.value?.AppointmentID){
           useKitchen.SetModalOpen(false)
         router.push(("/BookAppointment/Success/"+res?.data?.value?.AppointmentID))
         useKitchen.SetAppointmentID(res?.data?.value?.AppointmentID)
+        }
+        }else{
+          toast.error(res.data.message)
         }
       }).catch(err=>{
         console.log('err', err)

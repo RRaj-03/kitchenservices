@@ -42,7 +42,7 @@ const Footer = () => {
                 <div className='lg:flex lg: justify-between lg:items-center'>
                     <nav className="flex flex-wrap justify-center -mx-5 -my-2">
                         {cities.map((city)=>{
-                            return<div className="px-5 py-2 text-gray-300 hover:text-gray-900 cursor-pointer" onClick={()=>{
+                            return<div key={city} className="px-5 py-2 text-gray-300 hover:text-gray-900 cursor-pointer" onClick={()=>{
                                 usekitchen.setSelectedCity(city)
                                 router.push("/Services")
                             }}>

@@ -23,9 +23,9 @@ export default function RootLayout({
     console.log(err);
 }); 
   return (
-    <html lang="en">
+    <html lang="en" className='scroll-smooth'>
       <body className={inter.className}>
-        <div className='pt-1 bg-cover bg-fixed bg-center bg-no-repeat shadow-lg' style={{backgroundImage:`url('/Images/Banner&Background/banner.jpg')`}}>
+        <div className=' pt-1 bg-cover bg-fixed bg-center bg-no-repeat shadow-lg' style={{backgroundImage:`url('/Images/Banner&Background/banner.jpg')`}}>
           
         <Navbar />
         <ToastContainer

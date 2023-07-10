@@ -31,39 +31,44 @@ export async function POST(request: Request): Promise<Response> {
     const client = await clientPromise;
     const Services = client.db("KitchenServices").collection("Tasks")
     const TaskID = await Services.insertOne(task)
-    const data = {
-      service_id: process.env.EMAIL_SERVICE_ID,
-      template_id: process.env.EMAIL_TEMPLATE_ID1,
-      user_id: process.env.EMAIL_PUBLIC_KEY,
-      accessToken: process.env.EMAIL_PRIVATE_KEY,
-      template_params: {
-        ...body,
-        name: (task.name),
-        'to_email': process.env.EMAIL
-      }
-    };
-    axios.post("https://api.emailjs.com/api/v1.0/email/send", data, { headers: { 'Content-Type': "application/json" } }).then().catch()
-    if (task.email) {
+    if(TaskID.acknowledged){
       const data = {
         service_id: process.env.EMAIL_SERVICE_ID,
-        template_id: process.env.EMAIL_TEMPLATE_ID2,
+        template_id: process.env.EMAIL_TEMPLATE_ID1,
         user_id: process.env.EMAIL_PUBLIC_KEY,
         accessToken: process.env.EMAIL_PRIVATE_KEY,
         template_params: {
+          ...body,
           name: (task.name),
-          id: TaskID.insertedId.toString(),
-          'to_email': task.email
+          'to_email': process.env.EMAIL
         }
       };
       axios.post("https://api.emailjs.com/api/v1.0/email/send", data, { headers: { 'Content-Type': "application/json" } }).then().catch()
+      if (task.email) {
+        const data = {
+          service_id: process.env.EMAIL_SERVICE_ID,
+          template_id: process.env.EMAIL_TEMPLATE_ID2,
+          user_id: process.env.EMAIL_PUBLIC_KEY,
+          accessToken: process.env.EMAIL_PRIVATE_KEY,
+          template_params: {
+            name: (task.name),
+            id: TaskID.insertedId.toString(),
+            'to_email': task.email
+          }
+        };
+        axios.post("https://api.emailjs.com/api/v1.0/email/send", data, { headers: { 'Content-Type': "application/json" } }).then().catch()
+      }
+      return NextResponse.json({value:{message:"Your Appointment is Succesfully Booked",AppointmentID:TaskID.insertedId.toString()}})
+      
+    }else{
+      return NextResponse.json({message:"Something went wrong"},{status:400})
+
     }
-    return NextResponse.json({value:{message:"Your Appointment is Succesfully Booked",AppointmentID:TaskID.insertedId.toString()}})
- 
  
 
 
-  } catch (error) {
+  } catch (error:any) {
     console.error(error)
-    return NextResponse.json({ error })
+    return NextResponse.json({ error:error.message })
   }
 }
