@@ -1,7 +1,13 @@
+"use client"
+import useKitchenStore from '@/Helpers/Store/KitchenStore'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const Footer = () => {
+    const cities = useKitchenStore(state=>state.cities)
+    const usekitchen = useKitchenStore()
+    const router = useRouter()
     return (
         <section className="bg-gray-700">
             <div className="w-[90%] mx-auto px-4 py-12 space-y-8 overflow-hidden sm:px-6 lg:px-8">
@@ -9,30 +15,43 @@ const Footer = () => {
                 {/* <div className="mapouter relative text-right w-full h-[400px]"><div className="gmap_canvas overflow-hidden !bg-none w-full h-[400px]"><iframe className="gmap_iframe !h-[400px]" width="100%" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=IIt kharagpur&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://thepasswordgame.com/">Password Game</a></div>
                 </div> */}
                 <section className="text-gray-600 body-font relative ">
-  <div className="mx-auto flex sm:flex-nowrap flex-wrap">
-    <div className="lg:w-2/3 sm:w-1/2 w-full my-8 sm:my-0 h-[300px] sm:h-auto bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-      <iframe width="100%" height="100%" className="absolute inset-0" title="map" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=IIt kharagpur&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" ></iframe>
-      
-    </div>
-    <div className="lg:w-1/3 sm:w-1/2 flex flex-col w-full">
-    <div className="bg-white relative h-full flex flex-wrap flex-col gap-4 py-6 rounded shadow-md justify-around">
-        <div className=" px-6">
-          <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-          <p className="mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat consequuntur dolor recusandae aut labore deserunt aperiam temporibus illo ipsam. Officiis.</p>
-        </div>
-          
-        <div className=" px-6 mt-4 lg:mt-0">
-        <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-          <a className="text-indigo-500 leading-relaxed">example@email.com</a>
-        </div>
-        <div className=" px-6 mt-4 lg:mt-0">
-          <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-          <p className="leading-relaxed">123-456-7890</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                    <div className="mx-auto flex sm:flex-nowrap flex-wrap">
+                        <div className="lg:w-2/3 sm:w-1/2 w-full my-8 sm:my-0 h-[300px] sm:h-auto bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+                            <iframe width="100%" height="100%" className="absolute inset-0" title="map" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=IIt kharagpur&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" ></iframe>
+
+                        </div>
+                        <div className="lg:w-1/3 sm:w-1/2 flex flex-col w-full">
+                            <div className="bg-white relative h-full flex flex-wrap flex-col gap-4 py-6 rounded shadow-md justify-around">
+                                <div className=" px-6">
+                                    <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+                                    <p className="mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat consequuntur dolor recusandae aut labore deserunt aperiam temporibus illo ipsam. Officiis.</p>
+                                </div>
+
+                                <div className=" px-6 mt-4 lg:mt-0">
+                                    <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+                                    <a className="text-indigo-500 leading-relaxed">example@email.com</a>
+                                </div>
+                                <div className=" px-6 mt-4 lg:mt-0">
+                                    <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+                                    <p className="leading-relaxed">123-456-7890</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div className='lg:flex lg: justify-between lg:items-center'>
+                    <nav className="flex flex-wrap justify-center -mx-5 -my-2">
+                        {cities.map((city)=>{
+                            return<div className="px-5 py-2 text-gray-300 hover:text-gray-900 cursor-pointer" onClick={()=>{
+                                usekitchen.setSelectedCity(city)
+                                router.push("/Services")
+                            }}>
+                            {city}
+                            </div>
+                        })}
+                    </nav>
+                </div>
+                <hr />
                 <div className='lg:flex lg: justify-between lg:items-center'>
                     <nav className="flex flex-wrap justify-center -mx-5 -my-2">
                         <div className="px-5 py-2">

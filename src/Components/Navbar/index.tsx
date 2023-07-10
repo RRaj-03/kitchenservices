@@ -8,7 +8,7 @@ import { usePathname, useRouter } from 'next/navigation'
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
+  { name: 'AboutUs', href: '#', current: false },
   { name: 'Services', href: '#', current: false },
 ]
 
@@ -196,14 +196,14 @@ useEffect( () => {
                     
                               {services.map((service:{_id:string,name:string}) => (
                                 <Listbox.Option
-                                  key={service._id}
+                                  key={service?._id}
                                   className={({ active }) =>
                                     classNames(
                                       active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                                       'relative cursor-default select-none py-2 pl-3 pr-9'
                                     )
                                   }
-                                  value={service.name}
+                                  value={service?.name}
                                 >
                                   {({ selected, active }) => (
                                     <>
@@ -212,7 +212,7 @@ useEffect( () => {
                                         <span
                                           className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
                                         >
-                                          {service.name}
+                                          {service?.name}
                                         </span>
                                       </div>
 
@@ -243,18 +243,18 @@ useEffect( () => {
                   <div className="flex space-x-2 items-center">
                     {navigation.map((item) => (
                       <Link
-                        key={item.name}
-                        href={"/" + item.name}
+                        key={item?.name}
+                        href={"/" + item?.name}
                         className={classNames(
-                          current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          current === item?.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         onClick={() => {
-                          setCurrent(item.name)
+                          setCurrent(item?.name)
                         }}
-                        aria-current={current === item.name ? 'page' : undefined}
+                        aria-current={current === item?.name ? 'page' : undefined}
                       >
-                        {item.name}
+                        {item?.name}
                       </Link>
                     ))}
                     <Link
@@ -279,20 +279,20 @@ useEffect( () => {
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-0.5 pb-3 pt-2">
                 {navigation.map((item) => (
-                  <Link href={"/" + item.name}>
+                  <Link href={"/" + item?.name}>
                   <Disclosure.Button
-                    key={item.name}
+                    key={item?.name}
                     as="div"
                     className={classNames(
-                      current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      current === item?.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'block rounded-md px-3 py-2 text-base font-medium'
                     )}
                     onClick={() => {
-                      setCurrent(item.name)
+                      setCurrent(item?.name)
                     }}
-                    aria-current={current === item.name ? 'page' : undefined}
+                    aria-current={current === item?.name ? 'page' : undefined}
                   >
-                    {item.name}
+                    {item?.name}
                     
                   </Disclosure.Button>
                   </Link>
@@ -421,14 +421,14 @@ useEffect( () => {
                     
                               {services.map((service:{_id:string,name:string}) => (
                                 <Listbox.Option
-                                  key={service._id}
+                                  key={service?._id}
                                   className={({ active }) =>
                                     classNames(
                                       active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                                       'relative cursor-default select-none py-2 pl-3 pr-9'
                                     )
                                   }
-                                  value={service.name}
+                                  value={service?.name}
                                 >
                                   {({ selected, active }) => (
                                     <>
@@ -437,7 +437,7 @@ useEffect( () => {
                                         <span
                                           className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
                                         >
-                                          {service.name}
+                                          {service?.name}
                                         </span>
                                       </div>
 

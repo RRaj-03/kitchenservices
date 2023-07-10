@@ -39,7 +39,7 @@ export default function Service() {
               </div>
             ))}
             {
-              Services.length === 0 ? <div className="group relative animate-pulse">
+              Services?.length === 0 ? <div className="group relative animate-pulse">
                 <div className="relative h-60 w-full overflow-hidden rounded-lg bg-gray-300 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
 
                 </div>

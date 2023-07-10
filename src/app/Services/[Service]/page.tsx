@@ -30,8 +30,8 @@ const index = ({ params }: { params: { Service: string } }) => {
     let temp: any 
     axios.get(`/api/Services/${params.Service}`).then(
       (res)=>{
-        setProduct(res.data.value)
-        useKitchen.SetForm({service:res.data.value})
+        setProduct(res?.data?.value)
+        useKitchen.SetForm({service:res?.data?.value})
         // console.log(res.data)
       }
     )
@@ -40,7 +40,7 @@ const index = ({ params }: { params: { Service: string } }) => {
   return (
     <div>
       <ServiceOverview product={product}/>
-      <Pricing Price_list={product.pricing} topindex={product.topindex}/>
+      {/* <Pricing Price_list={product.pricing} topindex={product.topindex}/> */}
       <Brand/>
       <Testinomials/>
     </div>
