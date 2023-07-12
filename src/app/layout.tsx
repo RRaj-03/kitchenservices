@@ -31,7 +31,7 @@ export const metadata:Metadata = {
   openGraph: {
     title: 'Kitchen Chimney Services',
     description: 'Providing Best Kitchen Chimney Services to Customer all around india',
-    images:['/favicon.png'],
+    images:['/image.png'],
     url:'https://www.kitchenchimneyservices.in/Home'
   },
 }
