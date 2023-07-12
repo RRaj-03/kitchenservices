@@ -10,19 +10,19 @@ const features = [
   {
     name: 'COST EFFECTIVE',
     description:
-      'Our services are the most economical in Mumbai and Hyderabad. Starting at only ₹199.',
+      'Our services are the most economical in Amravati and Nagpur. Starting at only ₹199.',
     icon: CurrencyRupeeIcon,
   },
   {
     name: 'MULTIPLE BRANDS & MODELS',
     description:
-      'We repair kitchen appliances of all brands and models, including Phillips, Bajaj, Prestige, Bosch, and many more.',
+      'We repair kitchen chimneys of all brands and models, including Faber, Elica, Hafele,Elisa, and many more.',
     icon: BuildingOffice2Icon,
   },
   {
     name: 'SAME DAY SERVICE',
     description:
-      'When you book a service with Urban Repairing, our expert technicians reach your doorstep at the scheduled time.',
+      'When you book a service with Kitchen Chimney Services, our expert technicians reach your doorstep at the scheduled time.',
     icon: RocketLaunchIcon,
   },
 ]

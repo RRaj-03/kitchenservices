@@ -3,22 +3,22 @@ import React from 'react'
 const steps = [
     {
         title: 'Book a Service',
-        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!',
+        desc: 'We have made it easy for you to book a service with us. Simply visit our website and fill the form or give us a call to schedule an appointment at your convenience. Our friendly customer support team will assist you in selecting the most suitable date and time for the service.',
         icon:PencilSquareIcon
     },
     {
         title: 'Technician Visit',
-        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!',
+        desc: 'On the scheduled day, our skilled and experienced technicians will arrive at your location promptly. They will be equipped with the necessary tools and expertise to handle a wide range of chimney models and brands. Our technicians undergo regular training to stay updated with the latest industry advancements, ensuring that they deliver top-notch service.',
         icon:HomeIcon
     },
     {
         title: 'Servicing of the Product',
-        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!',
+        desc: 'Once our technician assesses your chimney, they will perform a thorough servicing to address any issues and restore your chimneys optimal functionality. Our servicing includes cleaning the filters, inspecting the motor and fan, and ensuring that all components are in proper working condition. We prioritize your safety and follow strict protocols during the servicing process.',
         icon:WrenchScrewdriverIcon
     },
     {
         title: 'Give Feedback',
-        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio, non omnis hic, asperiores exercitationem voluptate quas excepturi necessitatibus, vitae incidunt officiis unde ipsam obcaecati corrupti inventore est ab. Ipsum!',
+        desc: 'We value your feedback and believe it is crucial in improving our services. After the servicing is complete, we encourage you to share your experience and provide any suggestions or comments. Your feedback helps us understand your needs better and allows us to continually enhance our service quality.',
         icon:DocumentCheckIcon
     }
 ]
