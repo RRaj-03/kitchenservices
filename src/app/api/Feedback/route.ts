@@ -1,35 +1,27 @@
-import axios from "axios";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "../MongoConnect/route";
 import * as Yup from 'yup'
-import { error } from "console";
-
-const TaskValidationSchema = Yup.object({
-    name: Yup.string().required(),
-    city:Yup.string().required(),
-    message:Yup.string().required()
+const FeedbackValidationSchema = Yup.object({
+  userid:Yup.string().required(),
+  password:Yup.string().required(),
+  page:Yup.number().required()
 });
+
 export async function POST(request: Request): Promise<Response> {
-    try {
-        let body = await request.json()
-        const task = await TaskValidationSchema.validate(body);
-        const client = await clientPromise;
-        const Services = client.db("KitchenServices").collection("Feedback")
-        const FeedBackID = await Services.insertOne(task)
-        console.log('FeedBackID', FeedBackID)
-        if(FeedBackID.acknowledged){
-
-            return NextResponse.json({value:{message:"Your Feedback is Recieved Successfully"}})
-        }else{
-            return NextResponse.json({message:"Something Went Wrong"},{ status : 400 })
-
-        }
-     
-     
-    
-    
-      } catch (err:any) {
-        console.error("rer",err)
-        return NextResponse.json({ message:err.message })
-      }
+  try {
+    let body = await request.json()
+    const {userid,password,page} = await FeedbackValidationSchema.validate(body);
+    if(userid===process.env.USER_ID && password===process.env.PASSWORD){
+      const client = await clientPromise;
+    const Services = client.db("KitchenServices").collection("Feedback")
+    const Feedback = await Services.find({}).sort({_id:-1}).skip(20*(page-1)).limit(20*page).toArray()
+    const totalData = await Services.countDocuments()
+    return NextResponse.json({Feedback:Feedback,totalData:totalData})
+    }else{
+    return NextResponse.json({ error:"Invalid Login Details" })
+    }
+  } catch (error:any) {
+    console.error(error)
+    return NextResponse.json({ error:error.message })
+  }
 }

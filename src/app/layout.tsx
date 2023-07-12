@@ -1,12 +1,9 @@
 import Navbar from '@/Components/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Footer from '@/Components/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Analytics } from '@vercel/analytics/react';
-import Modal from '@/Components/Modal';
-import { Call, Whatsapp } from '@/Components/FixedIcons/Whatsapp';
 import { Metadata } from 'next';
 import { title } from 'process';
 
@@ -66,10 +63,7 @@ export default function RootLayout({
         
         {children}
         <Analytics />
-        <Footer />
-        <Modal/>
-        <Whatsapp/>
-        <Call/>
+        
         </div>
       </body>
     </html>
