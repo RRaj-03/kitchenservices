@@ -8,6 +8,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Modal from '@/Components/Modal';
 import { Call, Whatsapp } from '@/Components/FixedIcons/Whatsapp';
 import { Metadata } from 'next';
+import { title } from 'process';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,7 +27,12 @@ export const metadata:Metadata = {
   referrer: 'origin-when-cross-origin',
   keywords: ['Kitchen Chimney Services', 'Kitchen', 'Chimney', 'Hob'],
   title:'Kitchen Chimney Services' ,
-  description:'Providing Best Kitchen Chimney Services to Customer all around india'
+  description:'Providing Best Kitchen Chimney Services to Customer all around india',
+  openGraph: {
+    title: 'Kitchen Chimney Services',
+    description: 'Providing Best Kitchen Chimney Services to Customer all around india',
+    images:['/favicon.png']
+  },
 }
 
 export default function RootLayout({
