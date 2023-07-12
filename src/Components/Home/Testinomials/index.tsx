@@ -16,8 +16,8 @@ const Testinomials = () => {
           <Link className="inline-flex items-center" href={''}>
             <img alt="testimonial" src="https://dummyimage.com/106x106" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"/>
             <span className="flex-grow flex flex-col pl-4">
-              <span className="title-font font-medium text-gray-900">Asif Khan</span>
-              <span className="text-gray-500 text-sm">Mumbai</span>
+              <span className="title-font font-medium text-gray-900">yogesh mohod</span>
+              <span className="text-gray-500 text-sm">Badnera</span>
             </span>
           </Link>
         </div>
@@ -31,8 +31,8 @@ const Testinomials = () => {
           <Link className="inline-flex items-center" href={''}>
             <img alt="testimonial" src="https://dummyimage.com/107x107" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"/>
             <span className="flex-grow flex flex-col pl-4">
-              <span className="title-font font-medium text-gray-900">Maksood Ansari</span>
-              <span className="text-gray-500 text-sm">Hyderabad</span>
+              <span className="title-font font-medium text-gray-900">Rameshbhau khandare</span>
+              <span className="text-gray-500 text-sm">Gadge nagar,Amravati</span>
             </span>
           </Link>
         </div>

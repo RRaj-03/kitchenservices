@@ -24,7 +24,7 @@ const Footer = () => {
                             <div className="bg-white relative h-full flex flex-wrap flex-col gap-4 py-6 rounded shadow-md justify-around">
                                 <div className=" px-6">
                                     <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-                                    <p className="mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat consequuntur dolor recusandae aut labore deserunt aperiam temporibus illo ipsam. Officiis.</p>
+                                    <p className="mt-1">Gadge Nagar, Amravati.</p>
                                 </div>
 
                                 <div className=" px-6 mt-4 lg:mt-0">
@@ -33,7 +33,7 @@ const Footer = () => {
                                 </div>
                                 <div className=" px-6 mt-4 lg:mt-0">
                                     <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-                                    <p className="leading-relaxed">123-456-7890</p>
+                                    <p className="leading-relaxed">9730947658,7720004562</p>
                                 </div>
                             </div>
                         </div>
