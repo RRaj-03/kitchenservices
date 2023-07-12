@@ -12,13 +12,13 @@ const Stats = () => {
           </p>
         </div>
         <div className="text-center md:border-r">
-          <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">5 Lac +</h6>
+          <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">5k +</h6>
           <p className="text-sm font-medium tracking-widest text-gray-300 uppercase lg:text-base">
             Customers Served
           </p>
         </div>
         <div className="text-center md:border-r">
-          <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">10K+</h6>
+          <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">100+</h6>
           <p className="text-sm font-medium tracking-widest text-gray-300 uppercase lg:text-base">
             Verified Experts
           </p>
