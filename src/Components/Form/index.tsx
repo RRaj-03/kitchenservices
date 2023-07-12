@@ -101,9 +101,9 @@ const Form = () => {
           toast.success(res.data.value.message)
         useKitchen.SetForm({...data,"service":values.service})
         if(res?.data?.value?.AppointmentID){
+          useKitchen.SetAppointmentID(res?.data?.value?.AppointmentID)
           useKitchen.SetModalOpen(false)
         router.push(("/BookAppointment/Success/"+res?.data?.value?.AppointmentID))
-        useKitchen.SetAppointmentID(res?.data?.value?.AppointmentID)
         }
         }else{
           toast.error(res.data.message)
