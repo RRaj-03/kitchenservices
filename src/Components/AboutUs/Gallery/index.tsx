@@ -102,8 +102,8 @@ export default function Gallery() {
                             alt=""/>
                         <div className="absolute inset-0 z-0 group-hover:bg-black opacity-60"></div>
                         <div className="absolute hidden p-4 text-center content left-4 bottom-4 right-4 group-hover:block">
-                            <a href="#" className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
-                                Lorem ipsum</a>
+                            <div  className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
+                                Lorem ipsum</div>
                             <h2 className="mb-0 text-sm font-light text-gray-300 dark:text-gray-300 ">
                                 Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
@@ -117,8 +117,8 @@ export default function Gallery() {
                             alt=""/>
                         <div className="absolute inset-0 z-0 group-hover:bg-black opacity-60"></div>
                         <div className="absolute hidden p-4 text-center content left-4 bottom-4 right-4 group-hover:block">
-                            <a href="#" className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
-                                Lorem ipsum</a>
+                            <div  className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
+                                Lorem ipsum</div>
                             <h2 className="mb-0 text-sm font-light text-gray-300 dark:text-gray-300 ">
                                 Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
@@ -132,8 +132,8 @@ export default function Gallery() {
                             alt=""/>
                         <div className="absolute inset-0 z-0 group-hover:bg-black opacity-60"></div>
                         <div className="absolute hidden p-4 text-center content left-4 bottom-4 right-4 group-hover:block">
-                            <a href="#" className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
-                                Lorem ipsum</a>
+                            <div  className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
+                                Lorem ipsum</div>
                             <h2 className="mb-0 text-sm font-light text-gray-300 dark:text-gray-300 ">
                                 Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
@@ -147,8 +147,8 @@ export default function Gallery() {
                             alt=""/>
                         <div className="absolute inset-0 z-0 group-hover:bg-black opacity-60"></div>
                         <div className="absolute hidden p-4 text-center content left-4 bottom-4 right-4 group-hover:block">
-                            <a href="#" className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
-                                Lorem ipsum</a>
+                            <div  className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
+                                Lorem ipsum</div>
                             <h2 className="mb-0 text-sm font-light text-gray-300 dark:text-gray-300 ">
                                 Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
@@ -162,8 +162,8 @@ export default function Gallery() {
                             alt=""/>
                         <div className="absolute inset-0 z-0 group-hover:bg-black opacity-60"></div>
                         <div className="absolute hidden p-4 text-center content left-4 bottom-4 right-4 group-hover:block">
-                            <a href="#" className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
-                                Lorem ipsum</a>
+                            <div  className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
+                                Lorem ipsum</div>
                             <h2 className="mb-0 text-sm font-light text-gray-300 dark:text-gray-300 ">
                                 Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
@@ -177,8 +177,8 @@ export default function Gallery() {
                             alt=""/>
                         <div className="absolute inset-0 z-0 group-hover:bg-black opacity-60"></div>
                         <div className="absolute hidden p-4 text-center content left-4 bottom-4 right-4 group-hover:block">
-                            <a href="#" className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
-                                Lorem ipsum</a>
+                            <div  className="mb-2 text-2xl font-semibold text-gray-100 dark:text-white ">
+                                Lorem ipsum</div>
                             <h2 className="mb-0 text-sm font-light text-gray-300 dark:text-gray-300 ">
                                 Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam</h2>
