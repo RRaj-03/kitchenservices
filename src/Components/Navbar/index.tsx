@@ -5,6 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon, CheckIcon, Chevron
 import Link from 'next/link'
 import useKitchenStore from '@/Helpers/Store/KitchenStore'
 import { usePathname, useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Home', href: 'Home', current: true },
@@ -74,14 +75,18 @@ useEffect( () => {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <Link href={'/Home'} className="flex flex-shrink-0 items-center">
-                    <img
+                    <Image
+                    width={64}
+                    height={64}
                       className="block h-8 w-auto lg:hidden"
-                      src="/icon.ico"
+                      src="/Images/favicon.ico"
                       alt="Your Company"
                     />
-                    <img
+                    <Image
+                    width={64}
+                    height={64}
                       className="hidden h-8 w-auto lg:block"
-                      src="icon.ico"
+                      src="/Images/favicon.ico"
                       alt="Your Company"
                     />
                     <div className='ml-2 hidden lg:block text-slate-200'>

@@ -14,12 +14,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata:Metadata = {
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: '/Images/favicon.ico',
+    shortcut: '/Images/favicon.ico',
+    apple: '/Images/favicon.ico',
     other: {
       rel: 'favicon',
-      url: '/favicon.ico',
+      url: '/Images/favicon.ico',
     },
   },
   generator: 'Kitchen Chimney Services',
