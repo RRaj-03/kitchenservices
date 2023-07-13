@@ -5,6 +5,8 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import Accordion from '../Accordion'
 import Link from 'next/link'
+import useKitchenStore from '@/Helpers/Store/KitchenStore'
+import Image from 'next/image'
 
 
 
@@ -13,6 +15,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function ServiceOverview({product}:{product:any}) {
+  const Imagesrc = useKitchenStore(state=>state.ImageString)
 
   return (
     <>
@@ -20,11 +23,11 @@ export default function ServiceOverview({product}:{product:any}) {
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            {product.breadcrumbs.map((breadcrumb: any) => (
-              <li key={breadcrumb.id}>
+            {product?.breadcrumbs.map((breadcrumb: any) => (
+              <li key={breadcrumb?.id}>
                 <div className="flex items-center">
-                  <Link href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
-                    {breadcrumb.name}
+                  <Link href={breadcrumb?.href} className="mr-2 text-sm font-medium text-gray-900">
+                    {breadcrumb?.name}
                   </Link>
                   <svg
                     width={16}
@@ -40,8 +43,8 @@ export default function ServiceOverview({product}:{product:any}) {
               </li>
             ))}
             <li className="text-sm">
-              <Link href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {product.name}
+              <Link href={product?.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+                {product?.name}
               </Link>
             </li>
           </ol>
@@ -50,32 +53,36 @@ export default function ServiceOverview({product}:{product:any}) {
         {/* Image gallery */}
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-            <img
-              src={product.images[0]?.src}
-              alt={product.images[0]?.alt}
+            <Image width={400} height={400}
+            loader={Imagesrc}
+              src={product?.images[0]?.src}
+              alt={product?.images[0]?.alt}
               className="h-full w-full object-cover object-center"
             />
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img
-                src={product.images[1]?.src}
-                alt={product.images[1]?.alt}
+              <Image width={400} height={400}
+              loader={Imagesrc}
+                src={product?.images[1]?.src}
+                alt={product?.images[1]?.alt}
                 className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img
-                src={product.images[2]?.src}
-                alt={product.images[2]?.alt}
+              <Image width={400} height={400}
+              loader={Imagesrc}
+                src={product?.images[2]?.src}
+                alt={product?.images[2]?.alt}
                 className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
           <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-            <img
-              src={product.images[3]?.src}
-              alt={product.images[3]?.alt}
+            <Image width={400} height={400}
+            loader={Imagesrc}
+              src={product?.images[3]?.src}
+              alt={product?.images[3]?.alt}
               className="h-full w-full object-cover object-center"
             />
           </div>
@@ -95,16 +102,16 @@ export default function ServiceOverview({product}:{product:any}) {
                     <StarIcon
                       key={rating}
                       className={classNames(
-                        product.reviews.average > rating ? 'text-gray-900' : 'text-gray-200',
+                        product?.reviews?.average > rating ? 'text-gray-900' : 'text-gray-200',
                         'h-5 w-5 flex-shrink-0'
                       )}
                       aria-hidden="true"
                     />
                   ))}
                 </div>
-                <p className="sr-only">{product.reviews.average} out of 5 stars</p>
-                <Link href={product.reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                  {product.reviews.totalCount} reviews
+                <p className="sr-only">{product?.reviews?.average} out of 5 stars</p>
+                <Link href={product?.reviews?.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                  {product?.reviews?.totalCount} reviews
                 </Link>
               </div>
             </div>
@@ -142,7 +149,7 @@ export default function ServiceOverview({product}:{product:any}) {
               <h3 className="sr-only">Description</h3>
 
               <div className="space-y-6">
-                <p className="text-base text-gray-900">{product.description}</p>
+                <p className="text-base text-gray-900">{product?.description}</p>
               </div>
             </div>
 
@@ -151,7 +158,7 @@ export default function ServiceOverview({product}:{product:any}) {
 
               <div className="mt-4">
                 <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                  {product.highlights.map((highlight: string) => (
+                  {product?.highlights.map((highlight: string) => (
                     <li key={highlight} className="text-gray-400">
                       <span className="text-gray-600">{highlight}</span>
                     </li>
@@ -164,7 +171,7 @@ export default function ServiceOverview({product}:{product:any}) {
               <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
               <div className="mt-4 space-y-6">
-                <p className="text-sm text-gray-600">{product.details}</p>
+                <p className="text-sm text-gray-600">{product?.details}</p>
               </div>
             </div>
           </div>

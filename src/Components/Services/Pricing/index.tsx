@@ -18,7 +18,7 @@ const Pricing = ({Price_list,topindex}:any) => {
       
       {
        Price_list.map((item: { title: string ;Price:string; Features: any[]; },index: any)=>{
-        return (<PriceComponent key={item.title} item={item} index={index} topindex={topindex}/>)
+        return (<PriceComponent key={item?.title} item={item} index={index} topindex={topindex}/>)
        })
       }
       
