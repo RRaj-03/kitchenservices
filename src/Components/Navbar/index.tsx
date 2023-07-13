@@ -256,11 +256,11 @@ useEffect( () => {
                         key={item?.name}
                         href={"/" + item?.href}
                         className={classNames(
-                          current === item?.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          current === item?.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         
-                        aria-current={current === item?.name ? 'page' : undefined}
+                        aria-current={current === item?.href ? 'page' : undefined}
                       >
                         {item?.name}
                       </Link>
@@ -292,13 +292,13 @@ useEffect( () => {
                     key={item?.name}
                     as="div"
                     className={classNames(
-                      current === item?.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      current === item?.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'block rounded-md px-3 py-2 text-base font-medium'
                     )}
                     onClick={() => {
-                      setCurrent(item?.name)
+                      setCurrent(item?.href)
                     }}
-                    aria-current={current === item?.name ? 'page' : undefined}
+                    aria-current={current === item?.href ? 'page' : undefined}
                   >
                     {item?.name}
                     
