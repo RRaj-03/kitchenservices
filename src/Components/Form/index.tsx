@@ -68,10 +68,10 @@ const Form = () => {
       email: Yup.string().email('Invalid email address'),
       date: Yup.string().required('Required'),
       phone: Yup.number()
-      .min(1000000000,"Inalid Phone Number")
-      .max(9999999999,"Inalid Phone Number")
-      .typeError("Inalid Phone Number")
-      .integer("Inalid Phone Number")
+      .min(1000000000,"Invalid Phone Number")
+      .max(9999999999,"Invalid Phone Number")
+      .typeError("Invalid Phone Number")
+      .integer("Invalid Phone Number")
       .required("Required"),
       service: Yup.object({
         _id:Yup.string().required("Required"),
@@ -84,6 +84,7 @@ const Form = () => {
     }),
     onSubmit: values => {
       const data = {
+
         "name": values.name,
         "email": values.email,
         "date": values.date,
@@ -97,12 +98,16 @@ const Form = () => {
         "address": values.address
       }
       axios.post("/api/Tasks",data).then((res:any)=>{
-        toast.success(res.data.value.message)
+        if(res.status===200){
+          toast.success(res.data.value.message)
         useKitchen.SetForm({...data,"service":values.service})
         if(res?.data?.value?.AppointmentID){
+          useKitchen.SetAppointmentID(res?.data?.value?.AppointmentID)
           useKitchen.SetModalOpen(false)
         router.push(("/BookAppointment/Success/"+res?.data?.value?.AppointmentID))
-        useKitchen.SetAppointmentID(res?.data?.value?.AppointmentID)
+        }
+        }else{
+          toast.error(res.data.message)
         }
       }).catch(err=>{
         console.log('err', err)
@@ -128,7 +133,8 @@ const Form = () => {
   </div>
   <div className="mx-auto max-w-2xl text-center">
     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Book Appointment</h2>
-    <p className="mt-2 text-lg leading-6 text-gray-600">Aute magna irure deserunt veniam aliqua magna enim voluptate.</p>
+    <p className="mt-2 text-lg leading-8 text-gray-600">kitchen chimney services.</p>
+
   </div>
   <form onSubmit={formik.handleSubmit} className="mx-auto mt-8 max-w-xl sm:mt-8">
     <div className="grid grid-cols-1 gap-x-8 gap-y-0 sm:grid-cols-2">

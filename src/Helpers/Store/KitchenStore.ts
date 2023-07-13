@@ -93,6 +93,7 @@ setServiceForm: (ele: any) => void
 // setPriceForm: (ele: any) => void
 SetModalOpen:(ModalOpen: boolean) => void
 SetAppointmentID:(id:string) => void
+ImageString:(src:any) => string
 }
 const useKitchenStore = create<KitchenState>()((set,get) => ({
         ModalOpen:true,
@@ -188,9 +189,13 @@ const useKitchenStore = create<KitchenState>()((set,get) => ({
             // setPriceForm:(ele:any)=>{
             //     set({price:ele})
             // }
+            ImageString: ({ src }:any)=>{
+                let newsrc = (src: string)=> src.replace("/file/d/","/uc?export=view&id=").replace("/view?usp=drive_link","")
+              return `${newsrc(src)}`;
+              }
         }))
 
-
+        // https://drive.google.com/file/d/1quND1C6iM1vlR0xd1I-fKJtjkrw5cxQp/view?usp=drive_link
 // useAccountStore.subscribe(console.log)
 
 

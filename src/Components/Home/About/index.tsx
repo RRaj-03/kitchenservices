@@ -10,19 +10,19 @@ const features = [
   {
     name: 'COST EFFECTIVE',
     description:
-      'Our services are the most economical in Mumbai and Hyderabad. Starting at only ₹199.',
+      'Our services are the most economical in Amravati and Nagpur. Starting at only ₹199.',
     icon: CurrencyRupeeIcon,
   },
   {
     name: 'MULTIPLE BRANDS & MODELS',
     description:
-      'We repair kitchen appliances of all brands and models, including Phillips, Bajaj, Prestige, Bosch, and many more.',
+      'We repair kitchen chimneys of all brands and models, including Faber, Elica, Hafele,Elisa, and many more.',
     icon: BuildingOffice2Icon,
   },
   {
     name: 'SAME DAY SERVICE',
     description:
-      'When you book a service with Urban Repairing, our expert technicians reach your doorstep at the scheduled time.',
+      'When you book a service with Kitchen Chimney Services, our expert technicians reach your doorstep at the scheduled time.',
     icon: RocketLaunchIcon,
   },
 ]
@@ -32,12 +32,12 @@ export default function About() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Kitchen Services</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">Kitchen Chimney Services</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
            Delivering Services at Your DoorStep
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-          We are the most trusted kitchen appliance repair and services brand in Mumbai, Hyderabad, and Pune, with 5,000+ happy customers.
+          We are the most trusted kitchen appliance repair and services brand in Amravati, Nagpur, and nearby Vidharbha region, with 5,000+ happy customers.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
