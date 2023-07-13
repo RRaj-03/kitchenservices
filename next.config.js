@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode:false,
+ 
+    reactStrictMode:true,
     images: {
         remotePatterns: [
           {
@@ -8,6 +9,12 @@ const nextConfig = {
             hostname: 'tailwindui.com',
             port: '',
             pathname: '/img/**',
+          },
+          {
+            protocol: 'https',
+            hostname: 'drive.google.com',
+            port: '',
+            pathname: '/**',
           },
         ],
       },
