@@ -19,9 +19,9 @@ export default function Head() {
     <section className="text-gray-300 body-font mt-16">
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-100">
-<span className="text-red-500 font-bold">Delivering Services</span>
-            <br className="inline-block" /><span className=" font-normal text-3xl">At Your Doorstep</span>
+          <h1 className="title-font sm:text-4xl text-2xl mb-6 font-medium text-black">
+<span className="text-red-500 font-bold text-3xl">Delivering Services</span>
+            <br className="inline-block" /><span className=" font-normal text-2xl">at your Doorstep</span>
           </h1>
           <p className="mb-8 leading-relaxed">In Business Since 1992
 Urban Repairing is a leading and the most trusted home and kitchen services platform, with an established presence in Pune, Mumbai, and Hyderabad. Hundreds of customers choose us every month for home maintenance, repairing, and installation solutions. 
