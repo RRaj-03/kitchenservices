@@ -37,7 +37,7 @@ export default function About() {
            Delivering Services at Your DoorStep
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-          We are the most trusted kitchen appliance repair and services brand in Mumbai, Hyderabad, and Pune, with 5,000+ happy customers.
+          We are the most trusted kitchen appliance repair and services brand in Amravati, Nagpur, and nearby Vidharbha region, with 5,000+ happy customers.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

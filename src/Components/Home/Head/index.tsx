@@ -27,7 +27,7 @@ export default function Head() {
 Kitchen chimney services is a leading and the most trusted home and kitchen services platform, with an established presence in Amravti and Nagpur. Hundreds of customers choose us every month for home maintenance, repairing, and installation solutions. 
 </p>
           <p className="mb-8 leading-relaxed">
-We have experienced professionals for all the services, fulfilling customers’ requirements at the requested date and time.</p>
+We have experienced professionals for all the services, fulfilling customers requirements at the requested date and time.</p>
           
           <div className="flex justify-center mt-4">
             <Link

@@ -15,6 +15,7 @@ const Footer = () => {
                 {/* <div className="mapouter relative text-right w-full h-[400px]"><div className="gmap_canvas overflow-hidden !bg-none w-full h-[400px]"><iframe className="gmap_iframe !h-[400px]" width="100%" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=IIt kharagpur&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://thepasswordgame.com/">Password Game</a></div>
                 </div> */}
                 <section className="text-gray-600 body-font relative ">
+
                     <div className="mx-auto flex sm:flex-nowrap flex-wrap">
                         <div className="lg:w-2/3 sm:w-1/2 w-full my-8 sm:my-0 h-[300px] sm:h-auto bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
                             <iframe width="100%" height="100%" className="absolute inset-0" title="map" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=IIt kharagpur&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" ></iframe>
@@ -29,11 +30,11 @@ const Footer = () => {
 
                                 <div className=" px-6 mt-4 lg:mt-0">
                                     <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-                                    <p className="text-indigo-500 leading-relaxed">mayur@kitchenchimneyservices.in</p>
+                                    <p className="text-indigo-500 leading-relaxed">Rasoichimneyservices@gmail.com</p>
                                 </div>
                                 <div className=" px-6 mt-4 lg:mt-0">
                                     <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-                                    <p className="leading-relaxed">9730947658,7720004562</p>
+                                    <p className="leading-relaxed">+91 9730947658,+91 7720004562</p>
                                 </div>
                             </div>
                         </div>
@@ -52,6 +53,7 @@ const Footer = () => {
                     </nav>
                 </div>
                 <hr />
+
                 <div className='lg:flex lg: justify-between lg:items-center'>
                     <nav className="flex flex-wrap justify-center -mx-5 -my-2">
                         <div className="px-5 py-2">
@@ -60,8 +62,8 @@ const Footer = () => {
                             </Link>
                         </div>
                         <div className="px-5 py-2">
-                            <Link href="/Team" className="text-base leading-6 text-gray-300 hover:text-gray-900">
-                                Team
+                            <Link href="/AboutUs" className="text-base leading-6 text-gray-300 hover:text-gray-900">
+                                About Us
                             </Link>
                         </div>
                         <div className="px-5 py-2">
