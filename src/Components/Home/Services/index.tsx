@@ -7,6 +7,8 @@ import Link from "next/link"
 
 export default function Service() {
   const Services = useKitchenStore(state => state.Services)
+  const Imagesrc = useKitchenStore(state=>state.ImageString)
+  
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -22,6 +24,7 @@ export default function Service() {
               <div key={service?.name} className="group relative">
                 <div className="relative h-60 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
                   <Image
+                  loader={Imagesrc}
                     src={service?.images[1].src}
                     alt={service?.images[1].alt}
                     height={240}
@@ -39,7 +42,7 @@ export default function Service() {
               </div>
             ))}
             {
-              Services.length === 0 ? <div className="group relative animate-pulse">
+              Services?.length === 0 ? <div className="group relative animate-pulse">
                 <div className="relative h-60 w-full overflow-hidden rounded-lg bg-gray-300 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
 
                 </div>

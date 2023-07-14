@@ -5,11 +5,12 @@ import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon, CheckIcon, Chevron
 import Link from 'next/link'
 import useKitchenStore from '@/Helpers/Store/KitchenStore'
 import { usePathname, useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Services', href: '#', current: false },
+  { name: 'Home', href: 'Home', current: true },
+  { name: 'About Us', href: 'AboutUs', current: false },
+  { name: 'Services', href: 'Services', current: false },
 ]
 
 function classNames(...classes: string[]) {
@@ -48,6 +49,11 @@ useEffect( () => {
 
     return () => window.removeEventListener('scroll', handleScroll)
 })
+  useEffect(() => {
+    if(pathname){
+      setCurrent(pathname.split("/")[1])
+    }
+  }, [pathname])
   
   return (
     <>
@@ -69,18 +75,22 @@ useEffect( () => {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <Link href={'/Home'} className="flex flex-shrink-0 items-center">
-                    <img
+                    <Image
+                    width={64}
+                    height={64}
                       className="block h-8 w-auto lg:hidden"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                      src="/Images/favicon.ico"
                       alt="Your Company"
                     />
-                    <img
+                    <Image
+                    width={64}
+                    height={64}
                       className="hidden h-8 w-auto lg:block"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                      src="/Images/favicon.ico"
                       alt="Your Company"
                     />
                     <div className='ml-2 hidden lg:block text-slate-200'>
-                      Your Company
+                      Kitchen Chimney Services
                     </div>
                   </Link>
 
@@ -196,14 +206,14 @@ useEffect( () => {
                     
                               {services.map((service:{_id:string,name:string}) => (
                                 <Listbox.Option
-                                  key={service._id}
+                                  key={service?._id}
                                   className={({ active }) =>
                                     classNames(
                                       active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                                       'relative cursor-default select-none py-2 pl-3 pr-9'
                                     )
                                   }
-                                  value={service.name}
+                                  value={service?.name}
                                 >
                                   {({ selected, active }) => (
                                     <>
@@ -212,7 +222,7 @@ useEffect( () => {
                                         <span
                                           className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
                                         >
-                                          {service.name}
+                                          {service?.name}
                                         </span>
                                       </div>
 
@@ -243,25 +253,23 @@ useEffect( () => {
                   <div className="flex space-x-2 items-center">
                     {navigation.map((item) => (
                       <Link
-                        key={item.name}
-                        href={"/" + item.name}
+                        key={item?.name}
+                        href={"/" + item?.href}
                         className={classNames(
-                          current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          current === item?.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
-                        onClick={() => {
-                          setCurrent(item.name)
-                        }}
-                        aria-current={current === item.name ? 'page' : undefined}
+                        
+                        aria-current={current === item?.href ? 'page' : undefined}
                       >
-                        {item.name}
+                        {item?.name}
                       </Link>
                     ))}
                     <Link
                     
                 href={"/BookAppointment"}
                         key={"Book Now"}
-                        className={'text-white whitespace-nowrap bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 md:px-2 lg:px-5 py-2.5 text-center'
+                        className={'text-white lg:!ml-4 whitespace-nowrap bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 md:px-2 lg:px-5 py-2.5 text-center'
                         }
                         // onClick={() => {
                         //   useKitchen.SetModalOpen(true)
@@ -279,20 +287,20 @@ useEffect( () => {
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-0.5 pb-3 pt-2">
                 {navigation.map((item) => (
-                  <Link href={"/" + item.name}>
+                  <Link href={"/" + item?.href}>
                   <Disclosure.Button
-                    key={item.name}
+                    key={item?.name}
                     as="div"
                     className={classNames(
-                      current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      current === item?.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'block rounded-md px-3 py-2 text-base font-medium'
                     )}
                     onClick={() => {
-                      setCurrent(item.name)
+                      setCurrent(item?.href)
                     }}
-                    aria-current={current === item.name ? 'page' : undefined}
+                    aria-current={current === item?.href ? 'page' : undefined}
                   >
-                    {item.name}
+                    {item?.name}
                     
                   </Disclosure.Button>
                   </Link>
@@ -421,14 +429,14 @@ useEffect( () => {
                     
                               {services.map((service:{_id:string,name:string}) => (
                                 <Listbox.Option
-                                  key={service._id}
+                                  key={service?._id}
                                   className={({ active }) =>
                                     classNames(
                                       active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                                       'relative cursor-default select-none py-2 pl-3 pr-9'
                                     )
                                   }
-                                  value={service.name}
+                                  value={service?.name}
                                 >
                                   {({ selected, active }) => (
                                     <>
@@ -437,7 +445,7 @@ useEffect( () => {
                                         <span
                                           className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
                                         >
-                                          {service.name}
+                                          {service?.name}
                                         </span>
                                       </div>
 

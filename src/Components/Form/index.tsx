@@ -14,22 +14,16 @@ import { useRouter } from 'next/navigation'
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
-interface MyFormValues {
-  firstName: string;
-  lastName: string;
-  email: string;
-  date: Date;
-}
+
 const Form = () => {
   const services = useKitchenStore(state=>state.allServices)
-  const [price, setPrice] = useState<any>([])
+  // const [price, setPrice] = useState<any>([])
   const [city, setCity] = useState<any>([])
   const useKitchen = useKitchenStore()
   const router = useRouter()
   const formik = useFormik({
     initialValues: {
-      firstName: useKitchen.firstName||'',
-      lastName: useKitchen.lastName||'',
+      name: useKitchen.name||'',
       email: useKitchen.email||'',
       date: useKitchen.date||dayjs().format("YYYY-MM-DD").toString(),
       phone: useKitchen.phone||'',
@@ -63,16 +57,13 @@ const Form = () => {
         type: "",
         cities:[]
       },
-      price:useKitchen.price||'',
+      // price:useKitchen.price||'',
       city:useKitchen.selectedCity||'',
       address:useKitchen.address||'',
     },
     validationSchema: Yup.object({
-      firstName: Yup.string()
+      name: Yup.string()
         .min(3,'Must be 3 characters or more')
-        .required('Required'),
-      lastName: Yup.string()
-        .min(3, 'Must be 3 characters or more')
         .required('Required'),
       email: Yup.string().email('Invalid email address'),
       date: Yup.string().required('Required'),
@@ -86,15 +77,15 @@ const Form = () => {
         _id:Yup.string().required("Required"),
         name:Yup.string().required("Required")
       }),
-      price: Yup.string().required('Required'),
+      // price: Yup.string().required('Required'),
       city: Yup.string().required('Required'),
       address: Yup.string().required("Required")
 
     }),
     onSubmit: values => {
       const data = {
-        "Name": values.firstName,
-        "lastName": values.lastName,
+
+        "name": values.name,
         "email": values.email,
         "date": values.date,
         "phone": values.phone,
@@ -102,32 +93,33 @@ const Form = () => {
           "_id": values.service._id,
           "name": values.service.name
         },
-        "price": values.price,
+        // "price": values.price,
         "city": values.city,
         "address": values.address
       }
       axios.post("/api/Tasks",data).then((res:any)=>{
-        toast.success(res.data.value)
+        if(res.status===200){
+          toast.success(res.data.value.message)
         useKitchen.SetForm({...data,"service":values.service})
-        useKitchen.SetModalOpen(false)
-        router.push("/Home")
+        if(res?.data?.value?.AppointmentID){
+          useKitchen.SetAppointmentID(res?.data?.value?.AppointmentID)
+          useKitchen.SetModalOpen(false)
+        router.push(("/BookAppointment/Success/"+res?.data?.value?.AppointmentID))
+        }
+        }else{
+          toast.error(res.data.message)
+        }
       }).catch(err=>{
         console.log('err', err)
-        toast.error(err.message)
+        toast.error(err?.message)
       })
       
     },
   });
   
+  
   useEffect(() => {
-    let temp = formik.values.service.pricing.map(function(o) {
-      return (o.title + " (₹"+o.Price+")");
-    });
-    setPrice(temp)
-  }, [formik.values.service])
-  useEffect(() => {
-    let temp = formik.values.service.cities
-    setCity(temp)
+    setCity(formik.values.service.cities)
   }, [formik.values.service])
   
   
@@ -135,44 +127,32 @@ const Form = () => {
   
   return (
     <div className=''>
-    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-10">
   <div className="absolute inset-x-0 top-[0rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
     <div className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style={{clipPath:' polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'}}></div>
   </div>
   <div className="mx-auto max-w-2xl text-center">
     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Book Appointment</h2>
     <p className="mt-2 text-lg leading-8 text-gray-600">kitchen chimney services.</p>
+
   </div>
-  <form onSubmit={formik.handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
+  <form onSubmit={formik.handleSubmit} className="mx-auto mt-8 max-w-xl sm:mt-8">
     <div className="grid grid-cols-1 gap-x-8 gap-y-0 sm:grid-cols-2">
       <div>
-        <label htmlFor="firstName" className="block text-sm font-semibold leading-6 text-gray-900">First name</label>
-        <div className="mt-2.5">
-          <input type="text" name="firstName" id="firstName" autoComplete="given-name" className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"  onChange={formik.handleChange}
+        <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">First name</label>
+        <div className="mt-1.5">
+          <input type="text" name="name" id="name" autoComplete="given-name" className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"  onChange={formik.handleChange}
          onBlur={formik.handleBlur}
-         value={formik.values.firstName} />
-          {formik.touched.firstName && formik.errors.firstName ? (
+         value={formik.values.name} />
+          {formik.touched.name && formik.errors.name ? (
           <p className="mt-2 text-sm text-right text-red-600 dark:text-red-500">
-            <span className="font-medium">{formik.errors.firstName}</span>
+            <span className="font-medium">{formik.errors.name}</span>
           </p>
         ) : (<br />
         )}
         </div>
       </div>
-      <div>
-        <label htmlFor="lastName" className="block text-sm font-semibold leading-6 text-gray-900">Last name</label>
-        <div className="mt-2.5">
-          <input type="text" name="lastName" id="lastName" autoComplete="family-name" className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"  onChange={formik.handleChange}
-         onBlur={formik.handleBlur}
-         value={formik.values.lastName} />
-         {formik.touched.lastName && formik.errors.lastName ? (
-          <p className="mt-2 text-sm text-right text-red-600 dark:text-red-500">
-            <span className="font-medium">{formik.errors.lastName}</span>
-          </p>
-        ) : (<br />
-        )}
-        </div>
-      </div>
+      
       
       <div >
         <label htmlFor="Date" className="block text-sm font-semibold leading-6 text-gray-900">Date</label>
@@ -202,6 +182,19 @@ const Form = () => {
         )}
         </div>
       </div>
+      <div className="">
+        <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">Email (optional)</label>
+        <div className="mt-2.5">
+          <input type="email" name="email" id="email" autoComplete="email" className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={formik.handleChange}
+         onBlur={formik.handleBlur} value={formik.values.email}/>
+         {formik.touched.email && formik.errors.email ? (
+          <p className="mt-2 text-sm text-right text-red-600 dark:text-red-500">
+            <span className="font-medium">{formik.errors.email}</span>
+          </p>
+        ) : (<br />
+        )}
+        </div>
+      </div>
       {/* <div >
         <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">Phone number</label>
         <div className="relative mt-2.5">
@@ -213,7 +206,7 @@ const Form = () => {
          value={formik.values.phone} />
         </div>
       </div> */}
-      <div >
+      <div className='sm:col-span-2'>
         <div onClick={()=>{
                 formik.setFieldTouched('service',true)
               }}>
@@ -292,7 +285,7 @@ const Form = () => {
     </Listbox>
         </div>
       </div>
-      <div >
+      {/* <div >
         <div onClick={()=>{
                 formik.setFieldTouched('price',true)
               }}>
@@ -304,7 +297,6 @@ const Form = () => {
           <div className="relative mt-2.5">
             <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-2 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
               <span className="flex items-center">
-                {/* <img src={selectedPrice.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
                 <span className="block truncate" onChange={formik.handleChange} onBlur={formik.handleBlur}>{formik.values.price||"Service"}</span>
               </span>
               <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
@@ -335,7 +327,6 @@ const Form = () => {
                     {({ selected, active }) => (
                       <>
                         <div className="flex items-center">
-                          {/* <img src={person.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
                           <span
                             className={classNames(selected ? 'font-semibold' : 'font-normal', ' block truncate')}
                           >
@@ -370,21 +361,9 @@ const Form = () => {
       )}
     </Listbox>
         </div>
-      </div>
+      </div> */}
       
-      <div className="sm:col-span-2">
-        <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">Email (optional)</label>
-        <div className="mt-2.5">
-          <input type="email" name="email" id="email" autoComplete="email" className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={formik.handleChange}
-         onBlur={formik.handleBlur} value={formik.values.email}/>
-         {formik.touched.email && formik.errors.email ? (
-          <p className="mt-2 text-sm text-right text-red-600 dark:text-red-500">
-            <span className="font-medium">{formik.errors.email}</span>
-          </p>
-        ) : (<br />
-        )}
-        </div>
-      </div>
+      
       <div className="sm:col-span-2">
         <div onClick={()=>{
                 formik.setFieldTouched('city',true)
