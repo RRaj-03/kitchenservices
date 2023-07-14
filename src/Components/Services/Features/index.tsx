@@ -4,18 +4,18 @@ import Link from 'next/link'
 import React from 'react'
 
 const featurelist = [{
-  name:'RESIDENTIAL SOLUTIONS',
-  desc:'Quick services for gas stove, chimney, geyser, and cooking range.',
+  name:'INSTALLATION & TESTING',
+  desc:'Quick Installation for gas stove, chimney, and cooking range.End-to-end LPG gas/copper pipeline installation services.',
   icon:HomeIcon
 },
 {
-  name:'COMMERCIAL SOLUTIONS',
-  desc:'Serving all industries with reliable maintenance & repair services.',
+  name:'REPAIRING & CLEANING',
+  desc:'We clean and repair kitchen chimneys and gas stoves for optimal performance and safety.',
   icon:BuildingOffice2Icon
 },
 {
-  name:'INSTALLATION & TESTING',
-  desc:'End-to-end LPG gas/copper pipeline installation services.',
+  name:'SPARE PARTS',
+  desc:'We provide genuine spare parts for kitchen chimneys, gas stoves, and gas pipes, ensuring quality and reliability for repairs and replacements.',
   icon:ArrowDownTrayIcon
 }]
 const ServiceFeature = () => {
