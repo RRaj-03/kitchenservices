@@ -20,8 +20,8 @@ export default function Head() {
       <div className=" mx-4 flex px-5  md:px-16 bg-gray-100 mb-8 rounded-lg pb-12 pt-20 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-2xl mb-6 font-medium text-black">
-<span className="text-red-500 font-bold">Delivering Services</span>
-            <br className="inline-block" /><span className=" font-normal text-3xl">at your Doorstep</span>
+<span className="text-red-500 font-bold text-3xl">Delivering Services</span>
+            <br className="inline-block" /><span className=" font-normal text-2xl">at your Doorstep</span>
           </h1>
           <p className="mb-8 leading-relaxed">In Business Since 2012
 Kitchen chimney services is a leading and the most trusted home and kitchen services platform, with an established presence in Amravti and Nagpur. Hundreds of customers choose us every month for home maintenance, repairing, and installation solutions. 
