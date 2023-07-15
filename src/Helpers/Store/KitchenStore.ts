@@ -17,6 +17,7 @@ interface KitchenState {
     images: never[];
     description: string;
     highlights: never[];
+    Faqs: never[];
     details: string;
     reviews: {
       href: string;
