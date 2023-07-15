@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import clientPromise from "../MongoConnect/route";
-
 export async function GET(request: Request) {
   try {
     console.log(request.url);
