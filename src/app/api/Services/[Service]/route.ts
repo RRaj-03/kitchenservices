@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import clientPromise from "../../MongoConnect/route";
-export async function GET(
+export async function POST(
   request: Request,
   { params }: { params: { Service: string } }
 ) {

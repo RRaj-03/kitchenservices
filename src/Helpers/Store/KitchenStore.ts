@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { combine } from "zustand/middleware";
 import dayjs from "dayjs";
 import axios from "axios";
-export const fetchCache = "auto";
+
 interface KitchenState {
   ModalOpen: boolean;
   name: string;
@@ -148,26 +148,27 @@ const useKitchenStore = create<KitchenState>()((set, get) => ({
     });
     set({ Services: service });
   },
-  SetCities: async () => {
-    const response = await fetch("/api/Services", { cache: "no-store" });
-    // console.log("res", await res);
-    const res = await response.json();
-    set({
-      allServices: res?.value,
-    });
-    res?.value.forEach((ele: any) => {
-      ele?.cities.forEach((city: string) => {
-        if (!get().cities.includes(city)) {
-          set({ cities: [...get().cities, city] });
-        }
+  SetCities: () => {
+    axios.post("/api/Services").then((res) => {
+      set({
+        allServices: res?.data?.value,
       });
+      res?.data?.value.forEach((ele: any) => {
+        ele?.cities.forEach((city: string) => {
+          if (!get().cities.includes(city)) {
+            set({ cities: [...get().cities, city] });
+          }
+        });
+      });
+      set({ selectedCity: get().cities[0] });
+      const city = get().cities[0];
+      const service = res?.data?.value.filter((ele: any) => {
+        return ele?.cities.includes(city);
+      });
+      // console.log('service', service)
+      set({ Services: service });
+      // console.log(res.data)
     });
-    set({ selectedCity: get().cities[0] });
-    const city = get().cities[0];
-    const service = res?.value.filter((ele: any) => {
-      return ele?.cities.includes(city);
-    });
-    set({ Services: service });
   },
   setSelectedCity: (selectedCity: string) => {
     set({ selectedCity: selectedCity });

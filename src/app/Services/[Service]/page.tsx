@@ -21,17 +21,14 @@ const index = ({ params }: { params: { Service: string } }) => {
     pricing: [],
     topindex: 2,
   });
-  const fetchdata = async () => {
-    const response = await fetch(`/api/Services/${params.Service}`, {
-      cache: "no-store",
-    });
-    const res = await response.json();
-    setProduct(res?.value);
-    useKitchen.SetForm({ service: res?.value });
-  };
   const useKitchen = useKitchenStore();
   useEffect(() => {
-    fetchdata();
+    let temp: any;
+    axios.post(`/api/Services/${params.Service}`).then((res) => {
+      setProduct(res?.data?.value);
+      useKitchen.SetForm({ service: res?.data?.value });
+      // console.log(res.data)
+    });
   }, []);
   const [opneFor, setopneForm] = useState(false);
   return (
