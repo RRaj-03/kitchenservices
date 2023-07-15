@@ -5,7 +5,6 @@ export async function GET(
   { params }: { params: { Service: string } }
 ) {
   try {
-    console.log(request.url);
     const client = await clientPromise;
     const Services = client.db("KitchenServices").collection("Services");
     // const length = Services.insertOne({title:"Chimney",Services:[{title:"Installation",Price:"400"}]})

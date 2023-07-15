@@ -13,7 +13,6 @@ import Link from "next/link";
 import useKitchenStore from "@/Helpers/Store/KitchenStore";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-export const dynamic = "force-dynamic";
 
 const navigation = [
   { name: "Home", href: "Home", current: true },
