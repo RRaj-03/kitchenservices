@@ -7,21 +7,23 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const featurelist = [{
-  name:'INSTALLATION & TESTING',
-  desc:'Quick Installation for gas stove, chimney, and cooking range.End-to-end LPG gas/copper pipeline installation services.',
-  icon:ArrowDownTrayIcon
-},
-{
-  name:'REPAIRING & CLEANING',
-  desc:'We clean and repair kitchen chimneys and gas stoves for optimal performance and safety.',
-  icon:WrenchScrewdriverIcon
-},
-{
-  name:'SPARE PARTS',
-  desc:'We provide genuine spare parts for kitchen chimneys, gas stoves, and gas pipes, ensuring quality and reliability for repairs and replacements.',
-  icon:Cog6ToothIcon
-}]
+const featurelist = [
+  {
+    name: "INSTALLATION & TESTING",
+    desc: "Quick Installation for gas stove, chimney, and cooking range.End-to-end LPG gas/copper pipeline installation services.",
+    icon: ArrowDownTrayIcon,
+  },
+  {
+    name: "REPAIRING & CLEANING",
+    desc: "We clean and repair kitchen chimneys and gas stoves for optimal performance and safety.",
+    icon: WrenchScrewdriverIcon,
+  },
+  {
+    name: "SPARE PARTS",
+    desc: "We provide genuine spare parts for kitchen chimneys, gas stoves, and gas pipes, ensuring quality and reliability for repairs and replacements.",
+    icon: Cog6ToothIcon,
+  },
+];
 
 const ServiceFeature = () => {
   return (
@@ -45,7 +47,7 @@ const ServiceFeature = () => {
               <div className="p-4 w-full md:w-1/3">
                 <div className="h-full border-2 border-gray-200 bg-slate-100 border-opacity-60 rounded-lg overflow-hidden">
                   <Image
-                    className="bg-gray-300 lg:h-48 md:h-36 w-full object-cover object-center"
+                    className="bg-gray-300 lg:h-[400px] md:h-36 w-full object-cover object-center"
                     height={144}
                     width={200}
                     src={"/Images/Service_feature/" + (index + 1) + ".jpg"}

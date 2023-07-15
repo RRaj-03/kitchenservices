@@ -9,7 +9,7 @@ export async function POST(
     const Services = client.db("KitchenServices").collection("Services");
     // const length = Services.insertOne({title:"Chimney",Services:[{title:"Installation",Price:"400"}]})
     const value = await Services.findOne({
-      name: params.Service.split("-").join(" "),
+      name: params.Service.split("-").join(" ").split("_").join("/"),
     });
     return NextResponse.json({ value: value });
   } catch (error) {
