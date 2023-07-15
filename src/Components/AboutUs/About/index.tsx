@@ -42,7 +42,7 @@ const About = () => {
                             </h1>
                         </div>
                         <p className="px-4 mb-10 text-base leading-7 text-gray-500 ">
-                        We are experienced professionals working for fulfilling customers’ requirements at the requested date and time.
+                        We are experienced professionals working for fulfilling customer's requirements at the requested date and time.
                         </p>
                         <div className="flex flex-wrap items-center">
                             <div className="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
@@ -73,7 +73,7 @@ const About = () => {
                                             <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                                         </svg>
                                     </span>
-                                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700 ">10k+
+                                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700 ">5k+
                                     </p>
                                     <h2 className="text-sm text-gray-700 ">Satisfied Customer</h2>
                                 </div>
@@ -87,7 +87,7 @@ const About = () => {
                                                 d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                         </svg>
                                     </span>
-                                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700 ">100
+                                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700 ">100+
                                     </p>
                                     <h2 className="text-sm text-gray-700 ">Experts</h2>
                                 </div>
