@@ -154,8 +154,8 @@ const Feedback = () => {
         ) : (null
         )}
                     </div>
-                    <button type='submit'  className="sm:max-lg:col-span-2 w-full text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-                    <p className="sm:max-lg:col-span-2 text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+                    <button type='submit'  className="sm:max-lg:col-span-2 w-full text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Book</button>
+                    <p className="sm:max-lg:col-span-2 text-xs text-gray-500 mt-3"></p>
                 </form>
                 <div className="lg:col-span-2 lg:row-start-1  mx-auto bg-gray-200 rounded-lg p-8 shadow-md">
                     <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Reviews</h1>
@@ -163,12 +163,12 @@ const Feedback = () => {
                         <div className="p-4  w-full">
                             <div className="h-full bg-gray-100 p-8 rounded flex justify-between flex-col">
 
-                                <p className="leading-relaxed mb-6">They generated a quote promptly; and their availability was great. Heck, they even gave us a lil' discount.</p>
+                                <p className="leading-relaxed mb-6">Outstanding service! Impeccable work, flawless repairs, and exceptional customer service. Highly recommended!</p>
                                 <Link className="inline-flex items-center" href={''}>
                                     <img alt="testimonial" src="https://dummyimage.com/106x106" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
                                     <span className="flex-grow flex flex-col pl-4">
-                                        <span className="title-font font-medium text-gray-900">Asif Khan</span>
-                                        <span className="text-gray-500 text-sm">Mumbai</span>
+                                        <span className="title-font font-medium text-gray-900">Rahul Agarawal</span>
+                                        <span className="text-gray-500 text-sm">sai nagar,Amravati</span>
                                     </span>
                                 </Link>
                             </div>
@@ -176,12 +176,12 @@ const Feedback = () => {
                         <div className="p-4  w-full">
                             <div className="h-full bg-gray-100 p-8 rounded flex justify-between flex-col">
 
-                                <p className="leading-relaxed mb-6">They performed the most comprehensive inspection, and had the most knowledgeable handyman. Had a great Experience</p>
+                                <p className="leading-relaxed mb-6">kitchen chimney services serves with prompt, professional cleaning, flawless repairs, and a strong commitment to customer satisfaction</p>
                                 <Link className="inline-flex items-center" href={''}>
                                     <img alt="testimonial" src="https://dummyimage.com/107x107" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
                                     <span className="flex-grow flex flex-col pl-4">
-                                        <span className="title-font font-medium text-gray-900">Maksood Ansari</span>
-                                        <span className="text-gray-500 text-sm">Hyderabad</span>
+                                        <span className="title-font font-medium text-gray-900">Ujjwal Makode</span>
+                                        <span className="text-gray-500 text-sm">Morshi</span>
                                     </span>
                                 </Link>
                             </div>

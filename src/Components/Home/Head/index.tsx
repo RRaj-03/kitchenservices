@@ -24,7 +24,7 @@ export default function Head() {
             <br className="inline-block" /><span className=" font-normal text-2xl">at your Doorstep</span>
           </h1>
           <p className="mb-8 leading-relaxed">In Business Since 2012
-Kitchen chimney services is a leading and the most trusted home and kitchen services platform, with an established presence in Amravti and Nagpur. Hundreds of customers choose us every month for home maintenance, repairing, and installation solutions. 
+Kitchen chimney services is a leading and the most trusted home and kitchen services platform, with an established presence in Amravati and Nagpur. Hundreds of customers choose us every month for home maintenance, repairing, and installation solutions. 
 </p>
           <p className="mb-8 leading-relaxed">
 We have experienced professionals for all the services, fulfilling customers requirements at the requested date and time.</p>
