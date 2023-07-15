@@ -7,23 +7,22 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const featurelist = [
-  {
-    name: "RESIDENTIAL SOLUTIONS",
-    desc: "Quick services for gas stove, chimney, geyser, and cooking range.",
-    icon: ArrowDownTrayIcon,
-  },
-  {
-    name: "COMMERCIAL SOLUTIONS",
-    desc: "Serving all industries with reliable maintenance & repair services.",
-    icon: WrenchScrewdriverIcon,
-  },
-  {
-    name: "INSTALLATION & TESTING",
-    desc: "End-to-end LPG gas/copper pipeline installation services.",
-    icon: Cog6ToothIcon,
-  },
-];
+const featurelist = [{
+  name:'INSTALLATION & TESTING',
+  desc:'Quick Installation for gas stove, chimney, and cooking range.End-to-end LPG gas/copper pipeline installation services.',
+  icon:ArrowDownTrayIcon
+},
+{
+  name:'REPAIRING & CLEANING',
+  desc:'We clean and repair kitchen chimneys and gas stoves for optimal performance and safety.',
+  icon:WrenchScrewdriverIcon
+},
+{
+  name:'SPARE PARTS',
+  desc:'We provide genuine spare parts for kitchen chimneys, gas stoves, and gas pipes, ensuring quality and reliability for repairs and replacements.',
+  icon:Cog6ToothIcon
+}]
+
 const ServiceFeature = () => {
   return (
     <section className="text-gray-600 body-font">
