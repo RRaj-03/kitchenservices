@@ -16,6 +16,7 @@ import "swiper/css/navigation";
 import { Keyboard, Autoplay, Pagination, Navigation } from "swiper";
 import Image from "next/image";
 const Images = ["Banner1", "Banner2", "Banner3", "Banner4"];
+const MobileImages = ["Mobile1", "Mobile2", "Mobile3"];
 export default function Carousel() {
   return (
     <>
@@ -31,7 +32,7 @@ export default function Carousel() {
         loop={true}
         navigation={true}
         modules={[Keyboard, Autoplay, Pagination, Navigation]}
-        className="mySwiper h-[300px] w-full"
+        className="mySwiper h-[300px] w-full !hidden sm:!block"
       >
         {Images.map((img) => {
           return (
@@ -39,8 +40,36 @@ export default function Carousel() {
               <Image
                 width={1920}
                 height={800}
-                className="w-full object-center h-full object-cover"
+                className="w-full  object-center h-full object-cover"
                 src={"/Images/Banner&Background/" + img + ".jpg"}
+                alt={img}
+              />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+      <Swiper
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        loop={true}
+        navigation={true}
+        modules={[Keyboard, Autoplay, Pagination, Navigation]}
+        className="mySwiper h-[300px] w-full sm:!hidden"
+      >
+        {MobileImages.map((img) => {
+          return (
+            <SwiperSlide className="object-contain ">
+              <Image
+                width={920}
+                height={800}
+                className="w-full  object-center h-full object-contain"
+                src={"/Images/Mobile/" + img + ".jpg"}
                 alt={img}
               />
             </SwiperSlide>
