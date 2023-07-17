@@ -24,7 +24,7 @@ const AccordionItem = ({ header, text }: props) => {
   return (
     <div className="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-gray-200 p-4 sm:p-8 lg:px-6 xl:px-8">
       <div
-        className={`faq-btn flex w-full text-left`}
+        className={`faq-btn flex justify-center items-center w-full text-left`}
         onClick={() => handleToggle()}
       >
         <div className="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
