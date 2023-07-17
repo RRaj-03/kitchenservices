@@ -97,7 +97,7 @@ export default function Gallery() {
       <div className="flex flex-wrap ">
                 <div className="w-full px-4 mb-4 lg:w-2/5 ">
                     <div className="relative overflow-hidden shadow-lg group">
-                        <img src="https://i.postimg.cc/hPvHtWNV/pexels-antoni-shkraba-4348404.jpg"
+                        <img src="https://drive.google.com/file/d/1c10VO_jdrDz3IEysx7mZzV8ktc1hqgl2/view?usp=drive_link"
                             className="group-hover:origin-center group-hover:scale-105 transition inset-0 object-cover object-center  duration-500 w-full h-[350px]"
                             alt=""/>
                         <div className="absolute inset-0 z-0 group-hover:bg-black opacity-60"></div>
@@ -112,7 +112,7 @@ export default function Gallery() {
                 </div>
                 <div className="w-full px-4 mb-8 lg:w-3/5 ">
                     <div className="relative overflow-hidden shadow-lg group">
-                        <img src="https://i.postimg.cc/mgDMnVzL/pexels-caio-56759.jpg"
+                        <img src="https://drive.google.com/file/d/1E4H8IWRShR3_hjw2_2XUUem9x2FPDqbP/view?usp=sharing"
                             className="group-hover:origin-center group-hover:scale-105 transition inset-0 object-cover object-center  duration-500 w-full h-[350px]"
                             alt=""/>
                         <div className="absolute inset-0 z-0 group-hover:bg-black opacity-60"></div>
