@@ -54,7 +54,7 @@ const Feedback = () => {
                 
                 <form onSubmit={formik.handleSubmit} className="lg:col-start-3 bg-gray-200 rounded-lg p-8 sm:max-lg:grid sm:max-lg:grid-cols-2 gap-x-4 justify-center w-full  md:mt-0 relative shadow-md ">
                     <h2 className="sm:max-lg:col-span-2 text-center text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
-                    <p className="sm:max-lg:col-span-2 text-center leading-relaxed mb-5 text-gray-600">Post-ironic portland shabby chic echo park, banjo fashion axe</p>
+                    <p className="sm:max-lg:col-span-2 text-center leading-relaxed mb-5 text-gray-600">Kitchen Chimney Services</p>
                     <div className="relative ">
                         <label htmlFor="name" className="leading-7 text-sm text-gray-600">Name</label>
                         <input type="text" id="name" name="name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.name}/>
