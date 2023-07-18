@@ -6,120 +6,112 @@ import React from "react";
 
 let images = [
   {
-    title: "Image0",
+    title: "Image1",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1c10VO_jdrDz3IEysx7mZzV8ktc1hqgl2/view?usp=drive_link",
   },
   {
-    title: "Image0",
+    title: "Image2",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1cDS4c9q4HDMNeE8W6rxrfelff2kv3Q4J/view?usp=drive_link",
   },
   {
-    title: "Image0",
+    title: "Image3",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1cLUGFTVCiLFseCzkd4wlQCND71JCRwdI/view?usp=drive_link",
   },
   {
-    title: "Image0",
+    title: "Image4",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1cAXJVp9eBFlvgNAmBFIXbFTLgCk7wMAk/view?usp=drive_link",
   },
   {
-    title: "Image0",
+    title: "Image5",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1bn9zCRWtou5kpgmVZRSzaWYzKFShVDV7/view?usp=drive_link",
   },
-
   {
-    title: "Image0",
+    title: "Image6",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1bdTjomRYA79p260SqIF58Nd7JhwLNDDp/view?usp=drive_link",
   },
-
   {
-    title: "Image0",
+    title: "Image7",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1bZlfwfBaNbVdXTPjHGagDJNqtNirrT2k/view?usp=drive_link",
   },
-
   {
-    title: "Image0",
+    title: "Image8",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1bW2eIFMykmNpzX--pOuyFyWlA7sySH1_/view?usp=drive_link",
   },
-
   {
-    title: "Image0",
+    title: "Image9",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1dZ-nXNzk2uwkc5guSmD6w1wVTyWJTqEf/view?usp=drive_link",
   },
-
   {
-    title: "Image0",
+    title: "Image10",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1bURmJfk5h2XRRdqL6IV6zR4Ed0GWYfwP/view?usp=drive_link",
   },
-
   {
-    title: "Image0",
+    title: "Image11",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1dPQKCjcCHKrp5pEaFa3s6QK9gT4Oacgg/view?usp=drive_link",
   },
-
   {
-    title: "Image0",
+    title: "Image12",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1dIz-Ezno1Wcc5sKoiCPcA8LiiquPWMYu/view?usp=drive_link",
   },
-
   {
-    title: "Image0",
+    title: "Image13",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1dF1JbUIAFJIWnu_-Uo_wPGMRLg5vrZ7Z/view?usp=drive_link",
   },
   {
-    title: "Image0",
+    title: "Image14",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1dKjXeaFt6gGuwFWo4hVy1_Ww7XT79uo3/view?usp=drive_link",
   },
   {
-    title: "Image0",
+    title: "Image15",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
     src: "https://drive.google.com/file/d/1dTEJVmfMMsAUWfTzvcf9w05wY_B57TM1/view?usp=drive_link",
   },
   {
-    title: "Image0",
+    title: "Image16",
     desc: `Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam`,
@@ -213,7 +205,14 @@ export default function Gallery() {
       <div className="flex flex-wrap ">
         {images.map((ele: any, index: number) => {
           return (
-            <div className="w-full px-4 mb-4 lg:w-2/5">
+            <div
+              className={
+                "w-full px-4 mb-4 " +
+                ((index + 1) % 4 === 0 || (index + 1) % 4 === 1
+                  ? "lg:w-3/5"
+                  : "lg:w-2/5")
+              }
+            >
               <div className="relative overflow-hidden shadow-lg group">
                 <Image
                   width={300}

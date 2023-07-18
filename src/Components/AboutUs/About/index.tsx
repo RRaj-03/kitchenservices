@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const About = () => {
+export default function About() {
   return (
     <div className="mt-[104px] md:mt-16 pt-8 bg-stone-100 pb-16 min-h-[calc(100vh-104px)] md:min-h-[calc(100vh-64px)] flex items-center justify-center">
       {/* <div className=" px-4 sm:px-6 lg:px-8">
@@ -33,7 +33,7 @@ const About = () => {
                     </div>
                 </div>
             </div> */}
-      <div className="flex flex-wrap px-4">
+      <div className="flex flex-wrap px-4 w-full">
         <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0 ">
           <div className="lg:max-w-md">
             <div className="px-4 pl-4 mb-6 border-l-4 border-blue-500">
@@ -140,7 +140,7 @@ const About = () => {
         </div>
         <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
           <img
-            src="https://i.postimg.cc/9MW8G96J/pexels-the-coach-space-2977565.jpg"
+            src="/Images/aboutus.jpg"
             alt=""
             className="relative object-cover w-full h-full rounded"
           />
@@ -148,4 +148,4 @@ const About = () => {
       </div>
     </div>
   );
-};
+}

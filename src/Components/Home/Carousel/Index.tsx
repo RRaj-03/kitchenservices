@@ -32,7 +32,7 @@ export default function Carousel() {
         loop={true}
         navigation={true}
         modules={[Keyboard, Autoplay, Pagination, Navigation]}
-        className="mySwiper h-[300px] w-full !hidden sm:!block"
+        className="mySwiper h-[400px] w-full !hidden sm:!block"
       >
         {Images.map((img) => {
           return (
@@ -60,7 +60,7 @@ export default function Carousel() {
         loop={true}
         navigation={true}
         modules={[Keyboard, Autoplay, Pagination, Navigation]}
-        className="mySwiper h-[300px] w-full sm:!hidden"
+        className="mySwiper h-[400px] w-full sm:!hidden"
       >
         {MobileImages.map((img) => {
           return (
