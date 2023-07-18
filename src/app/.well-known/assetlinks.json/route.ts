@@ -1,7 +1,7 @@
-import React from "react";
+import { NextResponse } from "next/server";
 
-const page = () => {
-  return [
+export async function GET(request: Request) {
+  return NextResponse.json([
     {
       relation: ["delegate_permission/common.handle_all_urls"],
       target: {
@@ -12,7 +12,5 @@ const page = () => {
         ],
       },
     },
-  ];
-};
-
-export default page;
+  ]);
+}
